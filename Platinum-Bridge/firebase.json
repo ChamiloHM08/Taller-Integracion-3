@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/platinum-bridge",
     "ignore": [
       "firebase.json",
       "**/.*",
