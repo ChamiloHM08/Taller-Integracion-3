@@ -11,8 +11,9 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MaterialModule,
     MatCardModule,
     ReactiveFormsModule, 
     FormsModule,
