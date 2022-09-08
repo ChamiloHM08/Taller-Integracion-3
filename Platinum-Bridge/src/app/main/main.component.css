@@ -1,6 +1,13 @@
-.fotomapa {
 
-position: absolute;
-text-align: center;
+.cartalogin {
+    max-width: 600px;
+    max-height: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+  }
 
-}
+  

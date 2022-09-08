@@ -9,7 +9,7 @@ body{
 .register-box{
     width: 320px;
     height: 420px;
-    background: rgba(7, 93, 206, 0.5);
+    background: #7986CB;
     color: #fff;
     top: 50%;
     left: 50%;
@@ -60,7 +60,7 @@ h1{
     border: none;
     outline: none;
     height: 40px;
-    background: #fb2525;
+    background: #283593;
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
