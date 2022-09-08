@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/users.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
+
 })
 export class RegisterComponent implements OnInit {
 
   formReg: FormGroup;
 
   constructor(
-    private userService: UsersService
-
+    private userService: UsersService,
+    private router: Router
   ) { 
     this.formReg = new FormGroup({
       email: new FormControl(),
@@ -29,6 +31,7 @@ export class RegisterComponent implements OnInit {
     this.userService.register(this.formReg.value)
       .then(response => {
         console.log(response);
+        this.router.navigate(['/login']);
       })
       .catch(error => console.log(error));
   }
