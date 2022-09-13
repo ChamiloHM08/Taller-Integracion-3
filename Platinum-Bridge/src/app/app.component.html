@@ -1,52 +1,23 @@
 
 
 <body>
-
-    <p>
-        <mat-toolbar color="primary">
-          <mat-toolbar-row>
-            <span>Platinum Bridge</span>
-            <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-              <mat-icon>menu</mat-icon>
-            </button>
-          </mat-toolbar-row>
-  
-          
-
-          <mat-toolbar-row>
-            
-            <span class="example-spacer"></span>
-
-            <button mat-button [matMenuTriggerFor]="aboveMenu">Perfil</button>
-<mat-menu #aboveMenu="matMenu" yPosition="above">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="belowMenu">Mapa</button>
-<mat-menu #belowMenu="matMenu" yPosition="below">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="beforeMenu">¿Quienes Somos?</button>
-<mat-menu #beforeMenu="matMenu" xPosition="before">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-              <mat-icon>favorite</mat-icon>
-            </button>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-              <mat-icon>share</mat-icon>
-            </button>
-          </mat-toolbar-row>
-        </mat-toolbar>
-      </p>
-
+ 
+  <header>
+    <div class="menu">
+      
+      <nav>
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Buscar Ofertas</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+      </nav>
+    </div>
+  </header>
 
       
-<router-outlet></router-outlet>
 
+  <router-outlet></router-outlet>
 </body>
+

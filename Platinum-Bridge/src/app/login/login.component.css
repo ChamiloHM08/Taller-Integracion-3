@@ -1,86 +1,65 @@
-body{
+* {
   margin: 0;
   padding: 0;
-  background-size: cover;
-  font-family: sans-serif;
-  height: 100vh;
-}
-
-.login-box{
-  width: 320px;
-  height: 420px;
-  background: #7986CB;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%,-50%);
   box-sizing: border-box;
-  padding: 70px 30px;
 }
 
-.login-box .avatar{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  position: absolute;
-  top: -50px;
-  left: calc(50% - 50px);
+body {
+  font-family: arial;
+  
 }
 
-h1{
+.form-login {
+  width: 400px;
+  height: 340px;
+  background: #3f51b5;
+  margin: auto;
+  margin-top: 180px;
+  padding: 20px 30px;
+  border-top: 4px solid #017bab;
+  color: white;
+}
+
+.form-login h5 {
   margin: 0;
-  padding: 0 0 20px;
   text-align: center;
-  font-size: 22px;
+  height: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid;
+  font-size: 20px;
 }
 
-.login-box p{
-  margin: 0;
-  padding: 0;
+.controls {
+  width: 100%;
+  border: 1px solid #017bab;
+  margin-bottom: 15px;
+  padding: 11px 10px;
+  background: #e6dcdc;
+  font-size: 14px;
   font-weight: bold;
 }
 
-.login-box input{
+.buttons {
   width: 100%;
-  margin-bottom: 20px;
-}
-
-.login-box input[type="text"], input[type="password"]{
-  border: none;
-  border-bottom: 1px solid #fff;
-  background: transparent;
-  outline: none;
   height: 40px;
-  color: #fff;
-  font-size: 16px;
-}
-
-.login-box input[type="submit"]{
+  background: #017bab;
   border: none;
-  outline: none;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.form-login p{
   height: 40px;
-  background: #283593;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 20px;
+  text-align: center;
+  border-bottom: 1px solid;
 }
 
-.login-box input[type="submit"]:hover{
-  cursor: pointer;
-  background: #ffc107;
-  color: #000;
-}
-
-.login-box a{
+.form-login a {
+  color: white;
   text-decoration: none;
-  font-size: 12px;
-  line-height: 20px;
-  color: darkgrey;
+  font-size: 14px;
 }
 
-.login-box a:hover{
-  color: #ffc107;
+.form-login a:hover {
+  text-decoration: underline;
 }

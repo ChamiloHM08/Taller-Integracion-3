@@ -1,14 +1,19 @@
-<h2>Login de usuario</h2>
-<div class="login-box">
-<form [formGroup] = "formLogin" (ngSubmit) = "onSubmit()">
-    <div>
-        <label class="form-label">Email: </label>
-        <input type="text" placeholder="Ingrese correo electronico" class="login" formControlName="email">
-    </div>
-    <div>
-        <label class="form-label">Password: </label>
-        <input type="password" placeholder="Contraseña" class="password" formControlName="password">
-    </div>
-    <input type="submit" value="Enviar">
-</form>
-</div>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario Login</title>
+    
+  </head>
+  <body>
+    <section class="form-login">
+      <h5>Formulario Login</h5>
+      <input class="controls" type="text" name="usuario" value="" placeholder="Usuario">
+      <input class="controls" type="password" name="contrasena" value="" placeholder="Contraseña">
+      <input class="buttons" type="submit" name="" value="Ingresar">
+      <input type=image src="http://assets.stickpng.com/thumbs/5847f9cbcef1014c0b5e48c8.png" width="50" height="50">
+      <p><a href="#">¿Olvidastes tu Contraseña?</a></p>
+
+    </section>
+
+  </body>
+</html>

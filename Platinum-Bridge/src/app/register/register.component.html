@@ -1,14 +1,13 @@
-<h2>Registro de usuario</h2>
-<div class="register-box">
-<form [formGroup] = "formReg" (ngSubmit) = "onSubmit()">
-    <div>
-        <label class="form-label">Email: </label>
-        <input type="text" placeholder="Ingrese correo electronico" class="registro" formControlName="email">
-    </div>
-    <div>
-        <label class="form-label">Password: </label>
-        <input type="password" placeholder="Contraseña" class="password" formControlName="password">
-    </div>
-    <input type="submit" value="Enviar">
-</form>
-</div>
+<body>
+    <section class="form-register">
+      <h4>Formulario Registro</h4>
+      <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+      <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+      <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+      <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña">     
+      <input class="botons" type="submit" value="Registrar">
+      
+      <p><a href="#">¿Ya tengo Cuenta?</a></p>
+    </section>
+  
+  </body>

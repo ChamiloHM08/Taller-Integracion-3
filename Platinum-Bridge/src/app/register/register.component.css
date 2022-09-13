@@ -1,84 +1,63 @@
-body{
+* {
     margin: 0;
     padding: 0;
-    background-size: cover;
-    font-family: sans-serif;
-    height: 100vh;
-}
-
-.register-box{
-    width: 320px;
-    height: 420px;
-    background: #7986CB;
-    color: #fff;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
     box-sizing: border-box;
-    padding: 70px 30px;
-}
-
-.register-box .avatar{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: -50px;
-    left: calc(50% - 50px);
-}
-
-h1{
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
+  }
+  
+  
+  
+  .form-register {
+    width: 400px;
+    background: #3f51b5;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+  }
+  
+  .form-register h4 {
     font-size: 22px;
-}
-
-.register-box p{
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
-
-.register-box input{
-    width: 100%;
     margin-bottom: 20px;
-}
-
-.register-box input[type="text"], input[type="password"]{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    color: #fff;
-    font-size: 16px;
-}
-
-.register-box input[type="submit"]{
-    border: none;
-    outline: none;
-    height: 40px;
-    background: #283593;
-    color: #fff;
+  }
+  
+  .controls {
+    width: 100%;
+    background: #e6dcdc;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
     font-size: 18px;
-    border-radius: 20px;
-}
-
-.register-box input[type="submit"]:hover{
-    cursor: pointer;
-    background: #ffc107;
-    color: #000;
-}
-
-.register-box a{
+    color: white;
+  }
+  
+  .form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+  }
+  
+  .form-register a {
+    color: white;
     text-decoration: none;
-    font-size: 12px;
-    line-height: 20px;
-    color: darkgrey;
-}
-
-.register-box a:hover{
-    color: #ffc107;
-}
+  }
+  
+  .form-register a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .form-register .botons {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }
