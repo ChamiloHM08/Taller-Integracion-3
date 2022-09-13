@@ -1,13 +1,34 @@
 
-.cartalogin {
-    max-width: 600px;
-    max-height: 500px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 150px;
+.General {
+    margin:auto;
+    margin-top: 50px;
+    width: 1850px;
+    height: 1000px;
+    background-color: white;
   }
 
+.Izquierda {
+    width:350px;
+    height: 1000px;
+    background-color: white;
+    float: left;
+    text-align: center;
+  }
+  .Titulo {
+    text-align: center;
+    background-color: white;
+    height: 30px;
+    width: 100;
+
+  }
+
+  .Mapa {
+    text-align: center;
+    background-color: white;
+    height: 1000px;
+    width: 1500px;
+    float: right;
+
+  }
+  
   
