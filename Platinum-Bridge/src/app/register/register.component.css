@@ -8,19 +8,23 @@
   
   .form-register {
     width: 400px;
-    background: #3f51b5;
+    background: #e8e8e7;
     padding: 30px;
     margin: auto;
+    border-top: 4px solid #981914;
     margin-top: 100px;
     border-radius: 4px;
     font-family: 'calibri';
-    color: white;
+    color: rgb(0, 0, 0);
     box-shadow: 7px 13px 37px #000;
   }
   
   .form-register h4 {
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 26px; 
+    margin-bottom: 40px;
+    border-bottom: 2px solid;
+    text-align: center;
+    
   }
   
   .controls {
@@ -29,10 +33,10 @@
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;
-    border: 1px solid #1f53c5;
+    border: 1px solid #981914;
     font-family: 'calibri';
     font-size: 18px;
-    color: white;
+    color: rgb(0, 0, 0);
   }
   
   .form-register p {
@@ -43,18 +47,28 @@
   }
   
   .form-register a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
   }
   
   .form-register a:hover {
-    color: white;
+    color: #981914;
     text-decoration: underline;
+    
   }
   
   .form-register .botons {
     width: 100%;
-    background: #1f53c5;
+    background: #981914;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }
+  .form-register .botons:hover {
+    width: 100%;
+    background: #b91817;
     border: none;
     padding: 12px;
     color: white;
