@@ -15,6 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import {MatIconModule} from '@angular/material/icon';
 import { ContactoComponent } from './contacto/contacto.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ContactoComponent } from './contacto/contacto.component';
     
   ],
   imports: [
+    GoogleMapsModule,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
