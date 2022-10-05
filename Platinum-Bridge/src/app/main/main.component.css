@@ -4,31 +4,46 @@
     margin-top: 50px;
     width: 1850px;
     height: 1000px;
-    background-color: white;
+    
   }
 
-.Izquierda {
-    width:350px;
-    height: 1000px;
-    background-color: white;
-    float: left;
-    text-align: center;
-  }
   .Titulo {
     text-align: center;
-    background-color: white;
+    
     height: 30px;
     width: 100;
 
   }
 
   .Mapa {
-    text-align: center;
-    background-color: white;
-    height: 1000px;
-    width: 1500px;
+    flex:1;
+    min-width: 300px;
     float: right;
+    width: 1600px;
+    height: 1000px;
+    
+  }
+
+  .Mapa:first-child {
+    flex: 2;
+    padding: 25px;
+    margin: 20px;
+    margin-bottom: 0px;
+  }
+
+  .Mapa div {
+    padding: 25px;
+    margin:20px;
+  }
+  
+  .home {
+    display: flex;
+    flex-wrap: wrap;
 
   }
   
-  
+  @media (max-width: 750px) {
+    .Mapa {
+        width: 100%;
+    }
+  }
