@@ -16,6 +16,7 @@ import { MaterialModule } from './material.module';
 import {MatIconModule} from '@angular/material/icon';
 import { ContactoComponent } from './contacto/contacto.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { PrincipalComponent } from './principal/principal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    ContactoComponent
+    ContactoComponent,
+    PrincipalComponent
     
   ],
   imports: [
