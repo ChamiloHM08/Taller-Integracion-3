@@ -28,13 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    this.userService.register(this.formReg.value)
-      .then(response => {
-        this.userService.logout();
-        console.log(response);
-        this.router.navigate(['/login']);
-      })
-      .catch(error => console.log(error));
+    this.userService.register(this.formReg.value);
   }
 
 }

@@ -27,22 +27,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    this.userSevice.login(this.formLogin.value)
-      .then(response => {
-        console.log(response);
-        this.router.navigate(['/main']);
-
-      })
-      .catch(error => console.log(error));
+    this.userSevice.login(this.formLogin.value);
+  
   }
 
   onclickGoogle(){
-    this.userSevice.loginGoogle()
-      .then(response => {
-        console.log(response);
-        this.router.navigate(['/main']);
-      })
-      .catch(error => console.log(error));
+    this.userSevice.loginGoogle();
+      
   }
 
 }
