@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'principal', component: PrincipalComponent},  
   /* DEJAR SIEMPRE ESTAS DOS RUTAS ALFINAL EN CASO DE CREAR NUEVAS, GENERA ERROR SINO */
   { path: '', pathMatch: 'full', redirectTo: '/principal'}, 
-  { path: '**', pathMatch: 'full', redirectTo: '/principal'}
+  { path: '**', pathMatch: 'full', redirectTo: '/principal'},
 ];
 
 @NgModule({

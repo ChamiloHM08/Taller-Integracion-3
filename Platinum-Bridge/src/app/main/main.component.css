@@ -20,7 +20,7 @@ time, mark, audio, video {
 }
 .Mapa{
 
-  margin-top: 0px;
+  margin-top: 3px;
   margin-left: 300px;
  }
 
@@ -29,3 +29,110 @@ time, mark, audio, video {
 
 
  }
+
+
+
+
+
+ .barra {
+   
+    /**Alto y ancho de donde se va a activar cuando pase el mouse**/
+    width:10%;
+    height:10%;
+    /*Para que este siempre en la misma parte de la pantalla aunque se haga scroll*/
+    position:fixed;
+    /*Tiempo en el que va a transitar la animacion*/
+    transition: .4s all ;
+    /*este arriba de todo en la pantalla*/
+    z-index: 1;  
+}
+
+.barra ul{
+    /*solucionar espacios no deseados*/
+    padding:0px;
+    text-align: center;
+        
+}
+.barra  li{
+    /*Velocidad de transicion del contenido*/
+    transition:all .9s;
+    list-style: none; 
+}
+
+.barra a{
+    text-decoration: none;   
+    font-weight: normal;  
+    /*La letra crece con el menu de esta manera no se va a ver como se ajusta al margen mientras crece*/
+    transition: .3s all ;
+    /*Se ocultan los elementos*/
+    font-size: 0px;
+    padding:0px;
+}
+
+.barra  h2{
+    text-align: center;
+    color:rgb(255, 255, 255);
+    padding:7px;
+	margin-left: 1cm;
+    padding-bottom:7px;
+
+    /*Se oculta el h2*/
+    font-size:0px;   
+}
+
+.barra img{
+    padding-top: 30px;
+    padding-left: 0px;
+}
+
+.barra:hover{
+    /*Tamaño cuando el cursor señale la barra*/
+    width: 10%;
+    height: 100vh;
+    
+    /*Color*/
+    background: #981914;
+}
+.barra:hover h2{
+    /*posicion dentro de barra del h2*/
+    padding:10px;
+    font-size: 20px;
+}
+.barra:hover a{ 
+    font-size:10px ;
+    color:white;
+    /*Se usa el display block para que el enlace respete el margin*/
+    display: block;
+    padding:20px;
+}
+.barra:hover img{
+    /*Desaparecer la imagen*/
+    height:0px;
+}
+
+
+.barra:hover li{
+    border-top:1px solid #2e3030;
+    /*Espacios entre las lineas y el contenido*/
+    
+    width:90%;
+        
+}
+.barra:hover ul:last-of-type{
+
+
+    border-bottom: 1px solid #2e3030;
+	width:90%;
+}
+
+.barra:hover a:hover{ 
+    font-size: 15px;
+    padding: 30px 0px; 
+    background: #b91817;  
+}
+@media (min-width: 400px){
+    .barra:hover{
+    width: 230px;
+	height: 330px;
+    }
+}
