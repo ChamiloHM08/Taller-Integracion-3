@@ -1,13 +1,37 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { Database, set, ref } from '@angular/fire/database';
+import { getDatabase, Database, set, ref, onValue, get, child } from '@angular/fire/database';
+
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsersService {
   
-  constructor(private Auth: Auth, private Database: Database, private Router: Router) {}
+  constructor(private Auth: Auth, private Database: Database, private Router: Router){}
+
+
+  ObtenerDatos(){
+    const dbRef = ref(getDatabase());
+ 
+    onValue(ref(this.Database, `users/${this.Auth.currentUser?.uid}`), (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+    });
+
+    // get(child(dbRef, `users/${this.Auth.currentUser?.uid}`)).then((snapshot) => {
+    //   if (snapshot.exists()) {
+    //     console.log(snapshot.val());
+    //   } else {
+    //     console.log("No data available");
+    //   }
+    //   }).catch((error) => {
+    //     console.error(error);
+    //   });
+
+  }
 
   register({email, password}: any){
     return createUserWithEmailAndPassword(this.Auth, email, password).then(response => {
@@ -36,16 +60,19 @@ export class UsersService {
     return signInWithEmailAndPassword(this.Auth, email, password)
     .then(response => {
       console.log(response);
+      this.pruebas();
       this.Router.navigate(['/main']);
 
     })
-    .catch(error => console.log(error));;
+    .catch(error => console.log(error));
   }
 
   loginGoogle(){
     return signInWithPopup(this.Auth, new GoogleAuthProvider())
-    .then(response => {
-      set(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{
+    .then(_response => {
+      
+      //Cambiar esto, con condicion de si existe o no existe
+      set(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{ 
         Nombre: '',
         Descripcion: '',
         Nacionalidad: '',
@@ -56,8 +83,8 @@ export class UsersService {
         Preferencia_Empleo: '',
         Trabaja: '',
         Cargo: '',
-      });
-      this.pruebas();
+      }); //
+      
       this.Router.navigate(['/main']);
     })
     .catch(error => {
@@ -68,12 +95,12 @@ export class UsersService {
   }
 
   logout(){
-    console.log(this.Auth)
+    console.log(this.Auth);
     return signOut(this.Auth);
   }
 
   pruebas(){
-      console.log(this.Auth.currentUser)
+      this.ObtenerDatos();
   }
 
 }
