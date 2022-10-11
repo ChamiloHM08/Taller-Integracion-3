@@ -52,12 +52,24 @@ table {
   .list-services figure { display: flex; justify-content: center; align-items: center; flex-flow: column;}
 /* 2 GENERIC ITEMS */
 
-  .header { height: 450px; background: url(https://images.contentstack.io/v3/assets/bltffa13a9594951d47/blt80c7d9f21db03e31/5f07541a12ab7c7614986eb6/iStock-959971292_copy.jpg?auto=webp&format=pjpg&quality=80&width=900&height=500&fit=crop) no-repeat center top; background-size:cover;}
+  .header { height: 450px; background: url(https://i.blogs.es/00fa3d/wallpapers-minimalistas/1366_2000.jpg) no-repeat center bottom; background-size:cover;}
   .title {margin-bottom: 40px; font: 60px 'Stint Ultra Condensed'; text-transform: uppercase;}
   p {margin-bottom: 40px;}
+  
+  .header h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    font-weight: 700;
 
-  .btn { border: 2px solid #fff; padding: 10px 40px; display: inline-block; text-decoration: none; color: #fff;}
+  
+  
+  
 
+  }
+
+
+  .btn { border: 2px solid #fff; padding: 10px 40px; display: inline-block; text-decoration: none; color: #fff; margin-top: 1cm;}
+  .inicio {border: 2px solid #fff; padding: 10px 40px; display: inline-block; text-decoration: none; color: #fff; margin-left: 1cm;}
 /* 3 PARTS OF WEB */
   .content { padding: 80px 0;}
 
@@ -74,3 +86,5 @@ table {
     .list-services img {position: relative; z-index: 1;}
   .list-services li { padding: 0 30px; }
   .list-services figcaption { position: relative; left: 0; right: 0; bottom: -40px;}
+
+  

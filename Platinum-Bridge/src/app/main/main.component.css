@@ -1,49 +1,31 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 10px;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+.Mapa{
 
-.General {
-    margin:auto;
-    margin-top: 50px;
-    width: 1850px;
-    height: 1000px;
-    
-  }
+  margin-top: 0px;
+  margin-left: 300px;
+ }
 
-  .Titulo {
-    text-align: center;
-    
-    height: 30px;
-    width: 100;
+ body{
+  background: linear-gradient(#404040, #191919);
 
-  }
 
-  .Mapa {
-    flex:1;
-    min-width: 300px;
-    float: right;
-    width: 1600px;
-    height: 1000px;
-    
-  }
-
-  .Mapa:first-child {
-    flex: 2;
-    padding: 25px;
-    margin: 20px;
-    margin-bottom: 0px;
-  }
-
-  .Mapa div {
-    padding: 25px;
-    margin:20px;
-  }
-  
-  .home {
-    display: flex;
-    flex-wrap: wrap;
-
-  }
-  
-  @media (max-width: 750px) {
-    .Mapa {
-        width: 100%;
-    }
-  }
+ }
