@@ -19,7 +19,6 @@ body {
     font-family: "Arial", Segoe UI, Tahoma, sans-serifl, Helvetica Neue, Helvetica;
 }
 
-
 .seccion-perfil-usuario .perfil-usuario-body,
 .seccion-perfil-usuario {
     display: flex;
@@ -145,6 +144,16 @@ body {
     font-size: 1.2rem;
     vertical-align: middle;
 }
+
+.seccion-perfil-usuario user-info {
+    position: absolute;
+    right: calc(0px - 50px - 1rem);
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
                                                  /* adaptacion a dispositivos */
 @media (max-width: 750px) {
     .seccion-perfil-usuario .lista-datos {
@@ -190,4 +199,11 @@ body {
     color: #000000;
     border-color: rgb(194, 179, 179);
 
+ }
+
+ .under_line{
+    text-decoration: underline;
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1em;
  }
