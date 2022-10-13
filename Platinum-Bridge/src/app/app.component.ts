@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/users.service';
+import { RestService } from './rest.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,16 @@ import { UsersService } from 'src/users.service';
 })
 export class AppComponent {
   title = 'Platinum-Bridge';
+  usuario: any;
   constructor(
     private userService: UsersService,
-    private router: Router
+    private router: Router,
+    private RestService: RestService
   ) { }
+
+  ngOnInit(): void {
+
+  }
 
   onClick() {
     this.userService.logout()
@@ -21,5 +28,7 @@ export class AppComponent {
       })
       .catch(error => console.log(error));
   }
+// xd
+
 
 }

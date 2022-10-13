@@ -17,6 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { ContactoComponent } from './contacto/contacto.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { PrincipalComponent } from './principal/principal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PrincipalComponent } from './principal/principal.component';
   ],
   imports: [
     GoogleMapsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
