@@ -31,4 +31,8 @@ export class AppComponent {
 // xd
 
 
+  onClick2() {
+    this.userService.ObtenerDatos();
+  }
+
 }

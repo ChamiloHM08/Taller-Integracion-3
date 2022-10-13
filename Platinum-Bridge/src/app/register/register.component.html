@@ -1,14 +1,14 @@
 <body>
     <section class="form-register">
-        <form [formGroup] = "formReg" (ngSubmit)="onSubmit()">    
+        <form #LoginForm = 'ngForm' (ngSubmit)="onSubmit(LoginForm.value)">    
             <h4>Formulario Registro</h4>
-            <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-            <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-            <input class="controls" formControlName="email" type="email" name="correo" id="email" placeholder="Ingrese su Correo">
-            <input class="controls" formControlName="password" type="password" name="correo" id="password" placeholder="Ingrese su Contraseña">     
+            <input class="controls" ngModel type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+            <input class="controls" ngModel type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+            <input class="controls" ngModel type="email" name="email" id="email" placeholder="Ingrese su Correo">
+            <input class="controls" ngModel type="password" name="password" id="password" placeholder="Ingrese su Contraseña">     
             <input class="botons" type="submit" value="Registrar">
         </form>
-      <p><a href="#">¿Ya tengo Cuenta?</a></p>
+      <p><a href="/login">¿Ya tengo Cuenta?</a></p>
     </section>
   
   </body>

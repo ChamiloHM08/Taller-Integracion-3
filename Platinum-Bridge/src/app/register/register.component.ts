@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/users.service';
 
@@ -11,24 +10,16 @@ import { UsersService } from 'src/users.service';
 })
 export class RegisterComponent implements OnInit {
 
-  formReg: FormGroup;
-
   constructor(
     private userService: UsersService,
     private router: Router
-  ) { 
-    this.formReg = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-
-    })
-  }
+  ) {}
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    this.userService.register(this.formReg.value);
+  onSubmit(value: any){
+    this.userService.register(value);
   }
 
 }

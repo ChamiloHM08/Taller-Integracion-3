@@ -1,49 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, User } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, User, user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { getDatabase, Database, set, ref, onValue, get, child } from '@angular/fire/database';
-
+import { getDatabase, Database, set, ref, onValue, get, child, update } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class UsersService {
-  
+  dbRef = ref(getDatabase());
+
   constructor(private Auth: Auth, private Database: Database, private Router: Router){}
 
-
   ObtenerDatos(){
-    const dbRef = ref(getDatabase());
- 
-    onValue(ref(this.Database, `users/${this.Auth.currentUser?.uid}`), (snapshot) => {
-      const data = snapshot.val();
-      console.log(data);
-    });
-
-    // get(child(dbRef, `users/${this.Auth.currentUser?.uid}`)).then((snapshot) => {
-    //   if (snapshot.exists()) {
-    //     console.log(snapshot.val());
-    //   } else {
-    //     console.log("No data available");
-    //   }
-    //   }).catch((error) => {
-    //     console.error(error);
-    //   });
-
+    return get(child(this.dbRef, `users/${this.Auth.currentUser?.uid}`))
   }
 
-  register({email, password}: any){
-    return createUserWithEmailAndPassword(this.Auth, email, password).then(response => {
+  register(value: any){
+    return createUserWithEmailAndPassword(this.Auth, value.email, value.password).then(response => {
 
       set(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{
-        Nombre: '',
+        Nombre: value.nombres,
+        Apellidos: value.apellidos,
         Descripcion: '',
         Nacionalidad: '',
         Direccion: '',
         F_Nacimiento: '',
         Correo: this.Auth.currentUser?.email,
-        Telefono: '',
+        Telefono: 0,
         Preferencia_Empleo: '',
         Trabaja: '',
         Cargo: ''
@@ -60,7 +44,6 @@ export class UsersService {
     return signInWithEmailAndPassword(this.Auth, email, password)
     .then(response => {
       console.log(response);
-      this.pruebas();
       this.Router.navigate(['/main']);
 
     })
@@ -68,23 +51,25 @@ export class UsersService {
   }
 
   loginGoogle(){
-    return signInWithPopup(this.Auth, new GoogleAuthProvider())
-    .then(_response => {
-      
-      //Cambiar esto, con condicion de si existe o no existe
-      set(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{ 
-        Nombre: '',
-        Descripcion: '',
-        Nacionalidad: '',
-        Direccion: '',
-        F_Nacimiento: '',
-        Correo: this.Auth.currentUser?.email,
-        Telefono: '',
-        Preferencia_Empleo: '',
-        Trabaja: '',
-        Cargo: '',
-      }); //
-      
+    return signInWithPopup(this.Auth, new GoogleAuthProvider()).then(response => {
+      get(child(this.dbRef, `users/${this.Auth.currentUser?.uid}`)).then((snapshot) => {
+          if (!snapshot.exists()) {
+            set(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{ 
+              Nombre: this.Auth.currentUser?.displayName,
+              Apellidos: '', 
+              Descripcion: '',
+              Nacionalidad: '',
+              Direccion: '',
+              F_Nacimiento: '',
+              Correo: this.Auth.currentUser?.email,
+              Telefono: 0,
+              Preferencia_Empleo: '',
+              Trabaja: '',
+              Cargo: '',
+            }); 
+          }
+      }),
+      //this.ObtenerDatos();
       this.Router.navigate(['/main']);
     })
     .catch(error => {
@@ -94,13 +79,32 @@ export class UsersService {
     });
   }
 
+  UpdateProfile(value: any){
+
+    const newDatos = {
+      Nombre: value.Nombre,
+      Descripcion: value.Descripcion,
+      Nacionalidad: value.Nacionalidad,
+      Direccion: value.Direccion,
+      F_Nacimiento: value.F_Nacimiento,
+      Correo: value.Correo,
+      Telefono: value.Telefono,
+      Preferencia_Empleo: value.Preferencia_Empleo,
+      Trabaja: value.Trabaja,
+      Cargo: value.Cargo
+    }
+
+    return update(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{newDatos}); 
+
+  }
+
   logout(){
     console.log(this.Auth);
     return signOut(this.Auth);
   }
 
   pruebas(){
-      this.ObtenerDatos();
+    console.log();
   }
 
 }

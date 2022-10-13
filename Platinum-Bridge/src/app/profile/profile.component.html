@@ -23,21 +23,21 @@
     </div>
     <div class="perfil-usuario-body">
         <div class="perfil-usuario-bio">
-            <h3 class="titulo">Lucas Lucario</h3>
-            <p class="texto">Lucario es un Pokémon de tipo lucha/acero introducido en la cuarta generación. Es la evolución de Riolu. Es un Pokémon adelantado por su aparición en la película Lucario y el misterio de Mew (ES), (HA), a partir de la sexta generación puede megaevolucionar en Mega-Lucario..</p>
+            <h3 class="titulo">{{UserData.Nombre +" "+ UserData.Apellidos}}</h3>
+            <p class="texto">{{UserData.Descripcion}}</p>
         </div>
         <div class="perfil-usuario-footer">
             <ul class="lista-datos">
-                <li><i class="icono fas fa-map-signs"></i> <strong>Direccion: </strong> <input type="text" class="dir inp"></li>
-                <li><i class="icono fas fa-mobile-alt"></i> <strong>Telefono: <input type="hidden">+56 <input type="number" class="telefono"></strong></li>
-                <li><i class="icono fas fa-briefcase"></i> <strong>Trabaja en: </strong><input type="text" class="trabaja-en inp"></li>
-                <li><i class="icono fas fa-building"></i> <strong>Cargo: </strong> <input type="text" class="cargo inp"></li>
+                <li><i class="icono fas fa-map-signs"></i> <strong>Direccion: </strong> <input type="text" class="dir inp" value="{{UserData.Direccion}}"></li>
+                <li><i class="icono fas fa-mobile-alt"></i> <strong>Telefono: <input type="hidden">+56 <input type="number" class="telefono" value={{UserData.Telefono}}></strong></li>
+                <li><i class="icono fas fa-briefcase"></i> <strong>Trabaja en: </strong><input type="text" class="trabaja-en inp" value="{{UserData.Trabaja}}"></li>
+                <li><i class="icono fas fa-building"></i> <strong>Cargo: </strong> <input type="text" class="cargo inp" value="{{UserData.Cargo}}"></li>
             </ul>
             <ul class="lista-datos">
-                <li><i class="icono fas fa-map-marker-alt"></i> <strong>Nacionalidad: </strong> <input type="text" class="ubicacion inp"></li>
-                <li><i class="icono fas fa-calendar-alt"></i> <strong>Fecha nacimiento: </strong> <input type="date" class="fn inp"></li>
+                <li><i class="icono fas fa-map-marker-alt"></i> <strong>Nacionalidad: </strong> <input type="text" class="ubicacion inp" value="{{UserData.Nacionalidad}}"></li>
+                <li><i class="icono fas fa-calendar-alt"></i> <strong>Fecha nacimiento: </strong> <input type="date" class="fn inp" value="{{UserData.F_Nacimiento}}"></li>
                 <li><i class="icono fas fa-user-check"></i><strong> Preferencia de Empleo: </strong> <span class="under_line">Formal </span>  <input type="checkbox" class="checkbox inp"> • <span class="under_line">Informal </span> <input type="checkbox" class="checkbox"></li>
-                <li><i class="icono fas fa-solid fa-envelope"></i> <strong>Correo: </strong> <input type="email" class=" email inp"></li>
+                <li><i class="icono fas fa-solid fa-envelope"></i> <strong>Correo: </strong> <input type="email" class=" email inp" value="{{UserData.Correo}}" ></li>
             </ul>
         </div>
     </div>
