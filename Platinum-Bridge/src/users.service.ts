@@ -81,9 +81,9 @@ export class UsersService {
 
   UpdateProfile(value: any){
 
-    const newDatos = {
-      Nombre: value.Nombre,
-      Descripcion: value.Descripcion,
+    return update(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{
+      //Nombre: value.Nombre,
+      //Descripcion: value.Descripcion,
       Nacionalidad: value.Nacionalidad,
       Direccion: value.Direccion,
       F_Nacimiento: value.F_Nacimiento,
@@ -92,9 +92,7 @@ export class UsersService {
       Preferencia_Empleo: value.Preferencia_Empleo,
       Trabaja: value.Trabaja,
       Cargo: value.Cargo
-    }
-
-    return update(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{newDatos}); 
+    }); 
 
   }
 

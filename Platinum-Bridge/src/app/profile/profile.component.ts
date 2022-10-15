@@ -47,6 +47,13 @@ export class ProfileComponent implements OnInit {
     }).catch((error) => {
       console.error(error);
     });
+      
+  }
+
+  EditarProfile(value: any){
+    console.log(value);
+    this.UsersService.UpdateProfile(value);
+
   }
 
 }

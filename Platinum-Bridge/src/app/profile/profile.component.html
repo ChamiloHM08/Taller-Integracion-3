@@ -27,18 +27,22 @@
             <p class="texto">{{UserData.Descripcion}}</p>
         </div>
         <div class="perfil-usuario-footer">
-            <ul class="lista-datos">
-                <li><i class="icono fas fa-map-signs"></i> <strong>Direccion: </strong> <input type="text" class="dir inp" value="{{UserData.Direccion}}"></li>
-                <li><i class="icono fas fa-mobile-alt"></i> <strong>Telefono: <input type="hidden">+56 <input type="number" class="telefono" value={{UserData.Telefono}}></strong></li>
-                <li><i class="icono fas fa-briefcase"></i> <strong>Trabaja en: </strong><input type="text" class="trabaja-en inp" value="{{UserData.Trabaja}}"></li>
-                <li><i class="icono fas fa-building"></i> <strong>Cargo: </strong> <input type="text" class="cargo inp" value="{{UserData.Cargo}}"></li>
-            </ul>
-            <ul class="lista-datos">
-                <li><i class="icono fas fa-map-marker-alt"></i> <strong>Nacionalidad: </strong> <input type="text" class="ubicacion inp" value="{{UserData.Nacionalidad}}"></li>
-                <li><i class="icono fas fa-calendar-alt"></i> <strong>Fecha nacimiento: </strong> <input type="date" class="fn inp" value="{{UserData.F_Nacimiento}}"></li>
-                <li><i class="icono fas fa-user-check"></i><strong> Preferencia de Empleo: </strong> <span class="under_line">Formal </span>  <input type="checkbox" class="checkbox inp"> • <span class="under_line">Informal </span> <input type="checkbox" class="checkbox"></li>
-                <li><i class="icono fas fa-solid fa-envelope"></i> <strong>Correo: </strong> <input type="email" class=" email inp" value="{{UserData.Correo}}" ></li>
-            </ul>
+            <form #EditForm = 'ngForm' (ngSubmit)="EditarProfile(EditForm.value)">
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-map-signs"></i> <strong>Direccion: </strong> <input type="text" [(ngModel)]="UserData.Direccion" name='Direccion' id='Direccion' class="dir inp"></li>
+                    <li><i class="icono fas fa-mobile-alt"></i> <strong>Telefono: <input type="hidden">+56 <input type="number" [(ngModel)]="UserData.Telefono"  name='Telefono' id='Telefono' class="telefono" ></strong></li>
+                    <li><i class="icono fas fa-briefcase"></i> <strong>Trabaja en: </strong><input type="text" [(ngModel)]="UserData.Trabaja" name='Trabaja' id='Trabaja' class="trabaja-en inp"></li>
+                    <li><i class="icono fas fa-building"></i> <strong>Cargo: </strong> <input type="text" [(ngModel)]="UserData.Cargo" name='Cargo' id='Cargo' class="cargo inp"></li>
+                </ul>
+            
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-map-marker-alt"></i> <strong>Nacionalidad: </strong> <input type="text" [(ngModel)]="UserData.Nacionalidad" name='Nacionalidad' id='Nacionalidad' class="ubicacion inp"></li>
+                    <li><i class="icono fas fa-calendar-alt"></i> <strong>Fecha nacimiento: </strong> <input type="date" [(ngModel)]="UserData.F_Nacimiento" name='F_Nacimiento' id='F_Nacimiento' class="fn inp"></li>
+                    <li><i class="icono fas fa-user-check"></i><strong> Preferencia de Empleo: </strong> <span class="under_line">Formal </span>  <input type="checkbox" ngModel value="{{UserData.Preferencia_Empleo}}" name='Preferencia_Empleo' id='Preferencia_Empleo' class="checkbox inp"> • <span class="under_line">Informal </span> <input type="checkbox" class="checkbox"></li>
+                    <li><i class="icono fas fa-solid fa-envelope"></i> <strong>Correo: </strong> <input type="email" [(ngModel)]="UserData.Correo" name='Correo' id='Correo' class=" email inp"></li>
+                    <input class="botons" type="submit" value="Actualizar">
+                </ul>
+            </form>
         </div>
     </div>
 </section>
