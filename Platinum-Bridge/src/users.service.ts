@@ -102,7 +102,7 @@ export class UsersService {
   }
 
   pruebas(){
-    console.log();
+    return this.Auth.currentUser?.photoURL;
   }
 
 }

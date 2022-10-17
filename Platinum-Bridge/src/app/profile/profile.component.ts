@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
         this.UserData.Preferencia_Empleo = snapshot.val().Preferencia_Empleo;
         this.UserData.Trabaja = snapshot.val().Trabaja;
         this.UserData.Cargo = snapshot.val().Cargo;
-
+        
       } else {
         console.log("No data available");
       }
@@ -48,6 +48,18 @@ export class ProfileComponent implements OnInit {
       console.error(error);
     });
       
+  }
+
+  foto(){
+    var foto = this.UsersService.pruebas()
+    if(foto == null){
+      return "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+
+    }else{
+      return foto
+
+    }
+    
   }
 
   EditarProfile(value: any){
