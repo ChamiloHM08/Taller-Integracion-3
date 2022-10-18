@@ -11,12 +11,9 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
+
 export class MainComponent implements OnInit {
   dbRef = ref(getDatabase());
-  options: google.maps.MapOptions = {
-  center: {lat: -38.737621, lng: -72.588965},
-  zoom: 15
-};
 
   usuarios = "";
   a = "";
@@ -27,10 +24,79 @@ export class MainComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.cargardata();  
+    this.cargardata(); 
+    this.initMap(); 
+    
   }
 
+  public initMap(): void {
+    const miLatLng_1 = {lat: -38.735621, lng: -72.588965}; //Marcador 1
+    const miLatLng_2 = {lat: -38.738621, lng: -72.588965}; //Marcador 2
+    const miLatLng_3 = {lat: -38.731621, lng: -72.582965}; //Marcador 3
+    const map = new google.maps.Map(
+      document.getElementById("map") as HTMLElement,
+      {
+        zoom: 15,
+        center: {lat: -38.737621, lng: -72.588965}, //Ruta base 
+      }
+    );
 
+    const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+
+    const bandera = new google.maps.Marker({
+      position: miLatLng_2,
+      map,
+      icon: image,
+    })
+
+    function prueba(){
+      const contenString =
+      '<div id="content">' +
+      '<div id="siteNote">' +
+      "</div>" +
+      '<h1 id="firstHeading" class="firstHeading">Solicitud de Trabajo: Paseo Mascotas</h1>' +
+      '<div id="bodyContent">' +
+      "<p><b>Se solicita trabajo</b>, freelance para paseo de mascotas entre las calles " +
+      "Francisco Bilbao y Zenteno, favor ponerse en contacto.</p>" +
+      "</div>" +
+      "</div>";
+
+      const infowindow = new google.maps.InfoWindow({
+        content: contenString,
+      })
+
+      const marker = new google.maps.Marker({
+        position: {lat: -38.732861, lng: -72.581267},
+        map,
+        icon: image,
+      })
+
+      marker.addListener("click", () => {
+        infowindow.open({
+          anchor: marker,
+          map,
+        })
+      })
+    }
+
+    //Generar de marcador con solicitud
+    var generar = prueba();
+
+    new google.maps.Marker({
+      position: miLatLng_3,
+      map,
+      icon: image,
+    })
+
+    new google.maps.Marker({
+      position: miLatLng_1, 
+      map, 
+      icon: image,
+      title: "Prueba marcador",
+    });
+  }
+
+  
 
   public cargardata() {
     get(child(this.dbRef,"users/300")).then((snapshot) => {

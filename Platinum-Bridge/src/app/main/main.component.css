@@ -24,6 +24,13 @@ time, mark, audio, video {
   margin-left: 300px;
  }
 
+.Mapa1{
+margin-top: 3px;
+margin-left: 300px;
+height: 700px;
+width: 1500px;
+}
+
  body{
   background: linear-gradient(#404040, #191919);
 
