@@ -8,13 +8,15 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 import { ContactoComponent } from './contacto/contacto.component';
 import { NumberValueAccessor } from '@angular/forms';
 import { PrincipalComponent } from './principal/principal.component';
+import { ActualizadatosComponent } from './actualizadatos/actualizadatos.component';
 const routes: Routes = [
   { path: 'main', component: MainComponent, ...canActivate(()=> redirectUnauthorizedTo(['/principal'])) },
   { path: 'profile', component: ProfileComponent, ...canActivate(()=> redirectUnauthorizedTo(['/principal'])) },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'contacto', component: ContactoComponent}, 
-  { path: 'principal', component: PrincipalComponent},  
+  { path: 'principal', component: PrincipalComponent}, 
+  { path: 'update', component: ActualizadatosComponent}, 
   /* DEJAR SIEMPRE ESTAS DOS RUTAS ALFINAL EN CASO DE CREAR NUEVAS, GENERA ERROR SINO */
   { path: '', pathMatch: 'full', redirectTo: '/principal'}, 
   { path: '**', pathMatch: 'full', redirectTo: '/principal'},
