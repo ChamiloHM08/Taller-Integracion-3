@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserData } from 'src/Models';
 import { UsersService } from 'src/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -66,6 +67,10 @@ export class ProfileComponent implements OnInit {
     console.log(value);
     this.UsersService.UpdateProfile(value);
 
+  }
+
+  showModal(){
+    Swal.fire('Cambios exitosos','Su perfil ha sido actualizado!','success');
   }
 
 }
