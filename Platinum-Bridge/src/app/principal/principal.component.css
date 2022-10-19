@@ -60,11 +60,6 @@ table {
     color: rgb(255, 255, 255);
     font-size: 50px;
     font-weight: 700;
-
-  
-  
-  
-
   }
 
 
@@ -79,7 +74,7 @@ table {
     .tarifas {background: #404040; color: #fff;}
 
 
-/* 3 LIST  */
+/* 4 LIST  */
 
   .list-services figure { position: relative; width: 150px; height: 190px;}
   .list-services figure:after {content: ""; position: absolute; top: 0; left: 0; border-radius: 50%; z-index: 0; background: #fff; width: 150px; height: 150px;}
