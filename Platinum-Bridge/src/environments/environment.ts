@@ -14,6 +14,7 @@ export const environment = {
     measurementId: 'G-S58TCFC094',
   },
   production: false
+  //API_BASE_URL: "https://us-central1-api-pb-f4131.cloudfunctions.net/app"
 };
 
 /*

@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "platinum-bridge-c3c23",
-    "PlatinumBridge": "platinum-bridge-c3c23"
+    "PlatinumBridge": "platinum-bridge-c3c23",
+    "platinum": "platinum-bridge-c3c23"
   },
   "targets": {},
   "etags": {}

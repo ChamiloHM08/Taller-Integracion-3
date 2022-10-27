@@ -32,7 +32,7 @@ export class AppComponent {
 
 
   onClick2() {
-    console.log(this.userService.pruebas());
+    console.log(this.RestService.GetUsers());
   }
 
 }
