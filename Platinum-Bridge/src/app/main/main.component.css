@@ -152,7 +152,19 @@ width: 70%;
     }
 }
 
-.popup{
-
-
+.ventana{
+    background-color:rgb(150, 32, 38);
+    width: 30%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding: 33px;
+    min-height: 250px;
+    border-radius: 22px;
+    position: fixed;
+    z-index: 1;
+    left: 34%;
+    top: 35%;
+    display:none;
 }

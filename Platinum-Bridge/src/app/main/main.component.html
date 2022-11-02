@@ -3,30 +3,36 @@
 </head>
 
 <body>
-
-  <header class="Tituloosm">       
+  <div class="ventana" id="vent">
+    <h1> Genenar oferta de trabajo</h1>
+  </div>
+  <div class="ventana">
+    <a href="javascript:abrir()"><button></button></a>
+  </div>
+  <header class="Tituloosm">   
+    
     <div class="barra">
-        
         <h2>Opciones<img src="https://cdn-icons-png.flaticon.com/512/423/423038.png" style="width: 30%"></h2>        
         <ul>
             <li><a>Solicitar trabajo</a></li>
-            <li><a>Generar oferta</a></li>
+            <li><a href="javascript:abrir()">Generar oferta</a></li>
             <li><a>Verificar cuenta</a></li>
         </ul>
-       
-    </div> 
+      </div>
+    
 </header>
 
-<div class="popup">
-  <h1> test</h1>
- </div>
-<div class="Mapa1" id="map">  </div>
+<div class="Mapa1" id="map">  </div> 
 
+<script>  
 
+  function abrir(){
+    document.getElementsById("vent").style.display = "block";
+  }
 
+  function cerrar(){
+    document.getElementById("vent").style.display = "none";
+  }
 
+</script>
 </body>
-
-
-       
-    
