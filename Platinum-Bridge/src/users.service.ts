@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, User, user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { getDatabase, Database, set, ref, onValue, get, child, update } from '@angular/fire/database';
+import { RestService } from 'src/app/rest.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { getDatabase, Database, set, ref, onValue, get, child, update } from '@a
 export class UsersService {
   dbRef = ref(getDatabase());
 
-  constructor(private Auth: Auth, private Database: Database, private Router: Router){}
+  constructor(private Auth: Auth, private Database: Database, private Router: Router, private Api: RestService){}
 
   ObtenerDatos(){
     return get(child(this.dbRef, `users/${this.Auth.currentUser?.uid}`))
@@ -18,23 +19,11 @@ export class UsersService {
 
   register(value: any){
     return createUserWithEmailAndPassword(this.Auth, value.email, value.password).then(response => {
-
-      set(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{
-        Nombre: value.nombres,
-        Apellidos: value.apellidos,
-        Descripcion: '',
-        Nacionalidad: '',
-        Direccion: '',
-        F_Nacimiento: '',
-        Correo: this.Auth.currentUser?.email,
-        Telefono: 0,
-        Preferencia_Empleo: '',
-        Trabaja: '',
-        Cargo: ''
-      });
+     
+      this.Api.CreateDatabase(this.Auth.currentUser?.uid, value.nombres, value.apellidos, this.Auth.currentUser?.email);
 
       this.logout();
-      console.log(response);
+      //console.log(response);
       this.Router.navigate(['/login']);
     })
     .catch(error => console.log(error));
@@ -43,7 +32,7 @@ export class UsersService {
   login({email, password}: any){
     return signInWithEmailAndPassword(this.Auth, email, password)
     .then(response => {
-      console.log(response);
+      //console.log(response);
       this.Router.navigate(['/main']);
 
     })
@@ -52,24 +41,11 @@ export class UsersService {
 
   loginGoogle(){
     return signInWithPopup(this.Auth, new GoogleAuthProvider()).then(response => {
-      get(child(this.dbRef, `users/${this.Auth.currentUser?.uid}`)).then((snapshot) => {
-          if (!snapshot.exists()) {
-            set(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{ 
-              Nombre: this.Auth.currentUser?.displayName,
-              Apellidos: '', 
-              Descripcion: '',
-              Nacionalidad: '',
-              Direccion: '',
-              F_Nacimiento: '',
-              Correo: this.Auth.currentUser?.email,
-              Telefono: 0,
-              Preferencia_Empleo: '',
-              Trabaja: '',
-              Cargo: '',
-            }); 
-          }
-      }),
-      //this.ObtenerDatos();
+      this.Api.ExistsUserID(this.Auth.currentUser?.uid).subscribe(res =>{
+        if(!res){
+          this.Api.CreateDatabase(this.Auth.currentUser?.uid, this.Auth.currentUser?.displayName, "", this.Auth.currentUser?.email);
+        }
+      })    
       this.Router.navigate(['/main']);
     })
     .catch(error => {
@@ -97,7 +73,7 @@ export class UsersService {
   }
 
   logout(){
-    console.log(this.Auth);
+    //console.log(this.Auth);
     return signOut(this.Auth);
   }
 

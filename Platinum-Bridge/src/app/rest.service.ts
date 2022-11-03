@@ -13,9 +13,29 @@ export class RestService {
   //public GetUsers(url:string){
   //  return this.http.get("/users")
   //}
-  public GetUsers(){
+  GetUsers(){
     return this.http.get(this.baseUrl+"/users").subscribe((res: any)=>{
       console.log(res);
     });
   }
+
+  ExistsUserID(Uid: any){
+    return this.http.get(this.baseUrl+"/existsuserID/"+Uid);
+  }
+
+  UpdateProfile({Uid, Value}: any){
+    this.http.post(this.baseUrl+"/Update_Profile/"+Uid, Value).subscribe((res: any)=>{
+      console.log(res);
+    })
+  }
+
+  // Recordatorio: COLOCA EL NICKNAME 
+  CreateDatabase(Uid: any , Nombre: any, Apellido: any, Email: any){
+    const data = {Nombre: Nombre, Apellido: Apellido, Email: Email}
+    this.http.post(this.baseUrl+"/Create_Database/"+Uid, data).subscribe((res: any)=>{
+      console.log(res);
+    })
+  }
+
+
 }
