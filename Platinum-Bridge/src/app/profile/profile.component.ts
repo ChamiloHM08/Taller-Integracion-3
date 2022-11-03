@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserData } from 'src/Models';
 import { UsersService } from 'src/users.service';
+import { RestService } from '../rest.service';
+import { Auth } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -24,31 +26,18 @@ export class ProfileComponent implements OnInit {
     Cargo: ''
   }
 
-  constructor(private UsersService: UsersService) { }
+  constructor(private UsersService: UsersService, private Api: RestService, private Auth: Auth) { }
 
   ngOnInit(): void {
-    this.UsersService.ObtenerDatos().then((snapshot) => {
-      if (snapshot.exists()) {
 
-        this.UserData.Nombre = snapshot.val().Nombre;
-        this.UserData.Apellidos = snapshot.val().Apellidos;
-        this.UserData.Descripcion = snapshot.val().Descripcion;
-        this.UserData.Nacionalidad = snapshot.val().Nacionalidad;
-        this.UserData.Direccion = snapshot.val().Direccion;
-        this.UserData.F_Nacimiento = snapshot.val().F_Nacimiento;
-        this.UserData.Correo = snapshot.val().Correo;
-        this.UserData.Telefono = snapshot.val().Telefono;
-        this.UserData.Preferencia_Empleo = snapshot.val().Preferencia_Empleo;
-        this.UserData.Trabaja = snapshot.val().Trabaja;
-        this.UserData.Cargo = snapshot.val().Cargo;
-        
-      } else {
-        console.log("No data available");
+    this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
+      try {
+        this.UserData = res;
+      } catch (error) {
+        console.log(res.message)
       }
-    }).catch((error) => {
-      console.error(error);
     });
-      
+
   }
 
   foto(){

@@ -10,18 +10,27 @@ export class RestService {
   private baseUrl = "https://us-central1-api-pb-f4131.cloudfunctions.net/app"
   constructor(private http: HttpClient) {}
 
-  //public GetUsers(url:string){
-  //  return this.http.get("/users")
-  //}
   GetUsers(){
-    return this.http.get(this.baseUrl+"/users").subscribe((res: any)=>{
-      console.log(res);
-    });
+    return this.http.get(this.baseUrl+"/users");
+  }
+
+  GetUserID(Uid: any){
+    return this.http.get(this.baseUrl+"/userID/"+Uid);
   }
 
   ExistsUserID(Uid: any){
     return this.http.get(this.baseUrl+"/existsuserID/"+Uid);
   }
+
+  GetPublActivas(){
+    return this.http.get(this.baseUrl+"/publ_Activa");
+  }
+
+  GetPublTerminadas(){
+    return this.http.get(this.baseUrl+"/publ_Terminadas");
+  }
+
+  // --------------- METODOS POST ------------------// 
 
   UpdateProfile({Uid, Value}: any){
     this.http.post(this.baseUrl+"/Update_Profile/"+Uid, Value).subscribe((res: any)=>{
