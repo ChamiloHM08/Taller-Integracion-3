@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵpureFunction1 } from '@angular/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AppComponent } from '../app.component';
 import { RestService } from '../rest.service';
 import { Database, get, ref, getDatabase, child} from '@angular/fire/database';
 import { HttpClient } from '@angular/common/http';
 
+declare var funcion1:any;
+declare var funcion2:any;
 
 @Component({
   selector: 'app-main',
@@ -17,7 +19,12 @@ export class MainComponent implements OnInit {
 
   usuarios = "";
   a = "";
- 
+  onClick1(){
+    funcion1();
+  }
+  onClick2(){
+    funcion2();
+  }
   
   constructor( 
     private RestService: RestService,
@@ -105,7 +112,7 @@ export class MainComponent implements OnInit {
       console.log(this.a.toString());
     })
   } 
-
+  
 }
 
 

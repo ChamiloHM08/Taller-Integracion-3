@@ -27,12 +27,13 @@ top: 50%;
 }
  */
 .Mapa{
-
+  position: relative;
   margin-top: 3px;
   margin-left: 300px;
  }
 
 .Mapa1{
+position: relative;
 margin-top: 3px;
 margin-left: 300px;
 height: 80%;
@@ -162,9 +163,28 @@ width: 70%;
     padding: 33px;
     min-height: 250px;
     border-radius: 22px;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     left: 34%;
-    top: 35%;
+    top: 25%;
     display:none;
+    padding: 1px;
+}
+.cerrar{
+    position: absolute;
+    width: 1px;
+    height: 23px;
+    left: 89%;
+    top: 0.1px;
+    z-index: 1;
+    scale: 5%;
+}
+.cerrar :hover{
+    cursor: pointer;
+    scale: 120%;
+}
+
+.barra li :hover{
+    cursor: pointer; 
+    
 }

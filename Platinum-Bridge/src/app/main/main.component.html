@@ -3,36 +3,41 @@
 </head>
 
 <body>
+  
   <div class="ventana" id="vent">
-    <h1> Genenar oferta de trabajo</h1>
+    <section>
+    <h1>Generar una Oferta de Trabajo</h1>
+    <form>
+    <input type="text" name="Title" id="Title" placeholder="Titulo"> 
+    <input type="text" name="Descripcion" id="Descripcion" placeholder="Descripcion del trabajo"> 
+    <input type="number" name="monto" id="monto" placeholder="Monto CLP"> 
+    <input type="text" name="Ubicacion" id="Ubicacion" placeholder="Casa/Departamento"> 
+    <input type="datetime-local" name="Fecha" id="Fecha" placeholder="Ingrese su nombre">
+    <br>
+    <input type="submit" value="Generar">  
+    </form>
+    <div class="cerrar"><a (click)="onClick2()"><img src="https://cdn-icons-png.flaticon.com/512/753/753345.png"></a></div>
+    </section>
   </div>
+  
   <div class="ventana">
     <a href="javascript:abrir()"><button></button></a>
   </div>
   <header class="Tituloosm">   
     
     <div class="barra">
+      
         <h2>Opciones<img src="https://cdn-icons-png.flaticon.com/512/423/423038.png" style="width: 30%"></h2>        
         <ul>
             <li><a>Solicitar trabajo</a></li>
-            <li><a href="javascript:abrir()">Generar oferta</a></li>
+            <li><a (click)="onClick1()">Generar Oferta de Trabajo</a></li>
             <li><a>Verificar cuenta</a></li>
         </ul>
+      
       </div>
     
 </header>
 
 <div class="Mapa1" id="map">  </div> 
 
-<script>  
-
-  function abrir(){
-    document.getElementsById("vent").style.display = "block";
-  }
-
-  function cerrar(){
-    document.getElementById("vent").style.display = "none";
-  }
-
-</script>
 </body>
