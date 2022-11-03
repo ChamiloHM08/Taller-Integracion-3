@@ -4,6 +4,7 @@ import { AppComponent } from '../app.component';
 import { RestService } from '../rest.service';
 import { Database, get, ref, getDatabase, child} from '@angular/fire/database';
 import { HttpClient } from '@angular/common/http';
+import { MatPseudoCheckbox } from '@angular/material/core';
 
 declare var funcion1:any;
 declare var funcion2:any;
@@ -57,25 +58,24 @@ export class MainComponent implements OnInit {
     })
 
     function prueba(){
-      const contenString =
-      '<div id="content">' +
-      '<div id="siteNote">' +
-      "</div>" +
-      '<h1 id="firstHeading" class="firstHeading">Solicitud de Trabajo: Paseo Mascotas</h1>' +
-      '<div id="bodyContent">' +
-      "<p><b>Se solicita trabajo</b>, freelance para paseo de mascotas entre las calles " +
-      "Francisco Bilbao y Zenteno, favor ponerse en contacto.</p>" +
-      "</div>" +
-      "</div>";
-
-      const infowindow = new google.maps.InfoWindow({
-        content: contenString,
-      })
 
       const marker = new google.maps.Marker({
         position: {lat: -38.732861, lng: -72.581267},
-        map,
+        map: map,
         icon: image,
+      })
+
+      const infowindow = new google.maps.InfoWindow({
+        content: '<div id="content">' +
+        '<div id="siteNote">' +
+        "</div>" +
+        '<h1 id="firstHeading" class="firstHeading">Solicitud de Trabajo: Paseo Mascotas</h1>' +
+        '<div id="bodyContent">' +
+        "<p><b>Se solicita trabajo</b>, freelance para paseo de mascotas entre las calles " +
+        "Francisco Bilbao y Zenteno, favor ponerse en contacto.</p>" +
+        "<p>Locación:" + marker.getPosition() + "</p>" +
+        "</div>" +
+        "</div>",
       })
 
       marker.addListener("click", () => {
@@ -83,6 +83,10 @@ export class MainComponent implements OnInit {
           anchor: marker,
           map,
         })
+      })
+
+      google.maps.event.addListener(marker, "click", () => {
+        infowindow.open(map, marker)
       })
     }
 
