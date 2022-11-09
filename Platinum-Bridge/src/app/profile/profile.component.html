@@ -1,28 +1,54 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <Platinum-Bridge>Profile</Platinum-Bridge>
+    </title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
 <body>
-<div class="imagenes">
-    <img class="perfil" src="{{foto()}}" alt="img-avatar">
-</div>
+    
 
-<div class="datosnom">
-    <h3>{{UserData.Nombre +" "+ UserData.Apellidos}}</h3>
-    <p> {{UserData.Descripcion}}</p>
-</div>
-
-<div class="cajadatos">
-  <ul class="textos">
-  <li><i class="material-icons">flag</i><p>{{UserData.Nacionalidad}}</p></li>
-  <li><i class="material-icons">work</i><p>{{UserData.Trabaja}}</p></li>
-  <li><i class="material-icons">home</i><p>{{UserData.Direccion}}</p></li>
-  <li><i class="material-icons">email</i><p>{{UserData.Correo}}</p></li>
-
-  </ul>
-
-
-</div>
-<div class="barra">
-    <ul>
-        <li><a href="/update">Actualizar datos</a></li>
-    </ul>
-</div>
-
+<section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+            <div class="perfil-usuario-avatar" >
+                <img src="{{foto()}}" alt="img-avatar">
+                <button type="button" class="boton-avatar">
+                    <i class="far fa-image"></i>
+                </button>
+            </div>
+            
+            <button type="button" class="boton-portada">
+                <i class="far fa-image"></i> Cambiar fondo
+            </button>
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+            <h3 class="titulo">{{UserData.Nombre +" "+ UserData.Apellidos}}</h3>
+            <p class="texto">{{UserData.Descripcion}}</p>
+        </div>
+        <div class="perfil-usuario-footer">
+            <form #EditForm = 'ngForm' (ngSubmit)="EditarProfile(EditForm.value)">
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-map-signs"></i> <strong>Dirección: </strong> <input type="text" [(ngModel)]="UserData.Direccion" name='Direccion' id='Direccion' class="dir inp"></li>
+                    <li><i class="icono fas fa-mobile-alt"></i> <strong>Teléfono: <input type="hidden">+56 <input type="number" [(ngModel)]="UserData.Telefono"  name='Telefono' id='Telefono' class="telefono" ></strong></li>
+                    <li><i class="icono fas fa-briefcase"></i> <strong>Trabaja en: </strong><input type="text" [(ngModel)]="UserData.Trabaja" name='Trabaja' id='Trabaja' class="trabaja-en inp"></li>
+                    <li><i class="icono fas fa-building"></i> <strong>Cargo: </strong> <input type="text" [(ngModel)]="UserData.Cargo" name='Cargo' id='Cargo' class="cargo inp"></li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-map-marker-alt"></i> <strong>Nacionalidad: </strong> <input type="text" [(ngModel)]="UserData.Nacionalidad" name='Nacionalidad' id='Nacionalidad' class="ubicacion inp"></li>
+                    <li><i class="icono fas fa-calendar-alt"></i> <strong>Fecha nacimiento: </strong> <input type="date" [(ngModel)]="UserData.F_Nacimiento" name='F_Nacimiento' id='F_Nacimiento' class="fn inp"></li>
+                    <li><i class="icono fas fa-user-check"></i><strong>Preferencia de Empleo: <br></strong> <span class="under_line">Formal </span>  <input type="checkbox" ngModel value="{{UserData.Preferencia_Empleo}}" name='Preferencia_Empleo' id='Preferencia_Empleo' class="checkbox inp"> • <span class="under_line">Informal </span> <input type="checkbox" class="checkbox"></li>
+                    <li><i class="icono fas fa-solid fa-envelope"></i> <strong>Correo: </strong> <input type="email" [(ngModel)]="UserData.Correo" name='Correo' id='Correo' class=" email inp"></li>
+                </ul>
+                <br>
+                <button class="botons btn" type="submit" (click)="showModal()">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</section>
 </body>
+</html>

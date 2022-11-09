@@ -6,15 +6,21 @@
   
   <div class="ventana" id="vent">
     <section>
-    <h1>Generar una Oferta de Trabajo</h1>
-    <form>
-    <input type="text" name="Title" id="Title" placeholder="Titulo"> 
-    <input type="text" name="Descripcion" id="Descripcion" placeholder="Descripcion del trabajo"> 
-    <input type="number" name="monto" id="monto" placeholder="Monto CLP"> 
-    <input type="text" name="Ubicacion" id="Ubicacion" placeholder="Casa/Departamento"> 
-    <input type="datetime-local" name="Fecha" id="Fecha" placeholder="Ingrese su nombre">
+    <h1 class="formulario__titulo">Generar una Oferta de Trabajo</h1>
+    <form action="" class="formulario">
+    <input type="text" class="formulario__input"> 
+    <label for="" class="formulario__label">Titulo del trabajo</label>
+    <input type="text" class="formulario__input"> 
+    <label for="" class="formulario__label">Descripcion del trabajo</label>
+    <input type="number"class="formulario__input"> 
+    <label for="" class="formulario__label">Monto CLP</label>
+    <input type="text"class="formulario__input"> 
+    <label for="" class="formulario__label">Nombre Proveedor</label>
+    <input type="text" class="formulario__input"> 
+    <label for="" class="formulario__label">Referencias (Departamento/Condominio)</label>
+    <input type="datetime-local"class="formulario__input">
     <br>
-    <input type="submit" value="Generar">  
+    <input type="submit" value="Generar" class="formulario__submit">  
     </form>
     <div class="cerrar"><a (click)="onClick2()"><img src="https://cdn-icons-png.flaticon.com/512/753/753345.png"></a></div>
     </section>
