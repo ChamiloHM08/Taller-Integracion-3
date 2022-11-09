@@ -18,6 +18,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { PrincipalComponent } from './principal/principal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     ContactoComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    NavbarComponent
     
   ],
   imports: [
