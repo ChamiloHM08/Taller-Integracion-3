@@ -32,7 +32,6 @@ export class MainComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.cargardata(); 
     this.initMap(); 
     
   }
@@ -108,14 +107,6 @@ export class MainComponent implements OnInit {
   }
 
   
-
-  public cargardata() {
-    get(child(this.dbRef,"users/300")).then((snapshot) => {
-     this.usuarios = snapshot.val();
-     this.a = this.usuarios.toString();
-      console.log(this.a.toString());
-    })
-  } 
   
 }
 
