@@ -6,28 +6,31 @@
   
   <div class="ventana" id="vent">
     <section>
-    <h1 class="formulario__titulo">Generar una Oferta de Trabajo</h1>
-    <form action="" class="formulario">
+    <h1  class="formulario__titulo">Generar una Oferta de Trabajo</h1>
+    <form action="POST" class="formulario">
+    <input type="text"  class ="formulario__input" (click)="onClick3()" > 
+    <label for="" class="formulario__label fijar">Titulo del trabajo</label>
     <input type="text" class="formulario__input"> 
-    <label for="" class="formulario__label">Titulo del trabajo</label>
-    <input type="text" class="formulario__input"> 
-    <label for="" class="formulario__label">Descripcion del trabajo</label>
-    <input type="number"class="formulario__input"> 
-    <label for="" class="formulario__label">Monto CLP</label>
+    <label for="" class="formulario__label fijar" >Descripcion del trabajo </label>
+    <input type="number"class="formulario__input" > 
+    <label for="" class="formulario__label fijar">Monto CLP</label>
     <input type="text"class="formulario__input"> 
-    <label for="" class="formulario__label">Nombre Proveedor</label>
+    <label for="" class="formulario__label fijar">Nombre Proveedor</label>
     <input type="text" class="formulario__input"> 
-    <label for="" class="formulario__label">Referencias (Departamento/Condominio)</label>
+    <label for="" class="formulario__label fijar">Referencias (Departamento/Condominio)</label>
     <input type="datetime-local"class="formulario__input">
+    <label for="" class="formulario__label fijar">Fecha </label>
     <br>
-    <input type="submit" value="Generar" class="formulario__submit">  
+    <input type="submit" value="Generar" class="formulario__submit"> 
+    <br>
+    <input type="reset" value="Limpiar" class="formulario__submit">  
     </form>
     <div class="cerrar"><a (click)="onClick2()"><img src="https://cdn-icons-png.flaticon.com/512/753/753345.png"></a></div>
     </section>
   </div>
   
   <div class="ventana">
-    <a href="javascript:abrir()"><button></button></a>
+    <a href="javascript:abrir()"></a>
   </div>
   <header class="Tituloosm">   
     

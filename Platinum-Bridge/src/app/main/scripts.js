@@ -8,12 +8,14 @@ function funcion1(){
   }
 
 
-  /*
+  
   function funcion3(){
-    var inputs = document.getElementsByClassName('formulario__input');
+    var inputs = document.getElementsByClassName("formulario__input");
+    console.log("hola")
     for(var i=0; i<inputs.length; i++) {
       if(this.value.length >= 1) {
         this.nextElementSibling.classList.add('fijar');
+        console.log("h1")
       }	else {
         this.nextElementSibling.classList.remove('fijar');
       }
@@ -31,4 +33,3 @@ function Function4() {
     alert("Formulario enviado");
     return true;
   }
-*/

@@ -8,6 +8,8 @@ import { MatPseudoCheckbox } from '@angular/material/core';
 
 declare var funcion1:any;
 declare var funcion2:any;
+declare var funcion3:any;
+declare var funcion4:any;
 
 @Component({
   selector: 'app-main',
@@ -25,6 +27,12 @@ export class MainComponent implements OnInit {
   }
   onClick2(){
     funcion2();
+  }
+  onClick3(){
+    funcion3();
+  }
+  onClick4(){
+    funcion4();
   }
   
   constructor( 

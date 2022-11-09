@@ -166,7 +166,7 @@ width: 70%;
     position: absolute;
     z-index: 1;
     left: 30%;
-    top: 15%;
+    top: 11%;
     display:none;
     padding: 1px;
 }
@@ -223,12 +223,9 @@ width: 70%;
     margin-bottom: 40px;
 }
 
-.formulario__input:focus{
-    outline: 1px solid rgba(0,0,0,0.7);
-}
 
-.formulario__input:focus + .formulario__label{
-    margin-top: -125px;
+.formulario__input:focus + .formulario__label {
+    margin-top: -127px;
 }
 
 .formulario__label{
@@ -240,7 +237,10 @@ width: 70%;
     color: rgba(207, 177, 7, 0.5);
     transition: all 0.3s ease;
 }
+.fijar{
+    margin-top: -120px;
 
+}
 .formulario__submit{
     background: rgba(0, 0, 0, 0.7);
     color: white;
