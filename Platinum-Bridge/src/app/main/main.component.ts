@@ -76,15 +76,20 @@ export class MainComponent implements OnInit {
         icon: image,
       })
 
+      let date: Date = new Date()
       const infowindow = new google.maps.InfoWindow({
         content: '<div id="content">' +
         '<div id="siteNote">' +
         "</div>" +
-        '<h1 id="firstHeading" class="firstHeading">Solicitud de Trabajo: Paseo Mascotas</h1>' +
+        "<img src='https://cdn-icons-png.flaticon.com/512/616/616408.png' width='80' height='80'>" +
+        '<h1 id="firstHeading" class="firstHeading">Solicitud de Trabajo: Paseo de mascotas</h1>' +
         '<div id="bodyContent">' +
-        "<p><b>Se solicita trabajo</b>, freelance para paseo de mascotas entre las calles " +
-        "Francisco Bilbao y Zenteno, favor ponerse en contacto.</p>" +
-        "<p>Locación:" + marker.getPosition() + "</p>" +
+        "<p><b>Nombre: </b>Juan Pérez <br/>" +
+        "<b>Fecha de publicación: </b>" + String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear() + "<br/>" +
+        "<b>Descripción: </b>Se busca persona para pasear a mis perros por el simple motivo de que me fracturé el tobillo<br/>" +
+        "<b>Lugar: </b> Calle pinito feliz 123 " + marker.getPosition() + "<br/>" +
+        "<b>Monto: </b>$10.000</p>" +
+        "<p><a href='javascript:location.reload()'>Ver más datos aquí</a></p>" +
         "</div>" +
         "</div>",
       })
