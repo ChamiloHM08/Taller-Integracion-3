@@ -36,12 +36,16 @@ export class MainComponent implements OnInit {
   }
   
   constructor( 
-    private RestService: RestService,
+    private Rest: RestService,
     private http: HttpClient) { }
 
   ngOnInit(): void {
     this.initMap(); 
     
+  }
+
+  SendPubl(value: any){
+    this.Rest.SendPublic(value);
   }
 
   public initMap(): void {

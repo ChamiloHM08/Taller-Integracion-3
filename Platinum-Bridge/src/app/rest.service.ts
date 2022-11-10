@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Auth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class RestService {
   //private baseUrl = environment.API_BASE_URL;
   private baseUrl = "https://us-central1-api-pb-f4131.cloudfunctions.net/app"
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private Auth: Auth) {}
 
   GetUsers(){
     return this.http.get(this.baseUrl+"/users");
@@ -32,16 +33,45 @@ export class RestService {
 
   // --------------- METODOS POST ------------------// 
 
-  UpdateProfile({Uid, Value}: any){
-    this.http.post(this.baseUrl+"/Update_Profile/"+Uid, Value).subscribe((res: any)=>{
-      console.log(res);
-    })
+  UpdateProfile(Uid: any, Value: any){
+    try{
+    
+      const data = {Nombre: Value.nombres,
+        Descripcion: Value.descripcion,
+        Nacionalidad: Value.nacionalidad,
+        Direccion: Value.direccion,
+        F_Nacimiento: '',  
+        Telefono: Value.telefono,
+        Trabaja: Value.trabajo,
+      } 
+
+      this.http.post(this.baseUrl+"/Update_Profile/"+Uid, data).subscribe((res: any)=>{
+        console.log(res);
+      })
+
+    }catch(error){
+      console.log(error);
+    }
   }
 
   // Recordatorio: COLOCA EL NICKNAME 
   CreateDatabase(Uid: any , Nombre: any, Apellido: any, Email: any){
     const data = {Nombre: Nombre, Apellido: Apellido, Email: Email}
     this.http.post(this.baseUrl+"/Create_Database/"+Uid, data).subscribe((res: any)=>{
+      console.log(res);
+    })
+  }
+
+  SendPublic(Datos: any){
+    const data = {NickName: "", 
+      UidUser: this.Auth.currentUser?.uid,
+      Titulo: Datos.titulo,
+      Detalles: Datos.detalles,
+      Fecha: "",
+      Monto: Datos.monto,
+      Ubicacion: Datos.Ubicacion}
+
+    this.http.post(this.baseUrl+"/Send_Public", data).subscribe((res: any)=>{
       console.log(res);
     })
   }

@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
     Direccion: '',
     F_Nacimiento: '',
     Correo: '',
-    Telefono: 0,
+    Telefono: null,
     Preferencia_Empleo: '',
     Trabaja: '',
     Cargo: ''

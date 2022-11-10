@@ -1,15 +1,15 @@
 export interface UserData {
 
-    Nombre: String;
-    Apellidos: String;
-    Descripcion: String;
-    Nacionalidad: String;
-    Direccion: String;
-    F_Nacimiento: String;
-    Correo: String;
-    Telefono: Number;
-    Preferencia_Empleo: String;
-    Trabaja: String;
-    Cargo: String;
+    Nombre: String | null;
+    Apellidos: String | null;
+    Descripcion: String | null;
+    Nacionalidad: String | null;
+    Direccion: String | null;
+    F_Nacimiento: String | null;
+    Correo: String | null;
+    Telefono: Number | null;
+    Preferencia_Empleo: String | null;
+    Trabaja: String | null;
+    Cargo: String | null;
 
 }

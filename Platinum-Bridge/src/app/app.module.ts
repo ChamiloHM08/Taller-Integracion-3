@@ -19,6 +19,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { PrincipalComponent } from './principal/principal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ActualizadatosComponent } from './actualizadatos/actualizadatos.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     RegisterComponent,
     ContactoComponent,
     PrincipalComponent,
-    NavbarComponent
+    NavbarComponent, 
+    ActualizadatosComponent
     
   ],
   imports: [
