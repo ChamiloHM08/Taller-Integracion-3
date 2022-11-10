@@ -6,6 +6,17 @@ import { Database, get, ref, getDatabase, child} from '@angular/fire/database';
 import { HttpClient } from '@angular/common/http';
 import { MatPseudoCheckbox } from '@angular/material/core';
 
+let map: google.maps.Map;
+let marker: google.maps.Marker;
+let geocoder: google.maps.Geocoder;
+let responseDiv: HTMLDivElement;
+let response: HTMLElement;
+
+//Geolocalización por consola
+if ( navigator.geolocation ) {
+  navigator.geolocation.getCurrentPosition(console.log)
+}
+
 declare var funcion1:any;
 declare var funcion2:any;
 declare var funcion3:any;
@@ -37,7 +48,8 @@ export class MainComponent implements OnInit {
   
   constructor( 
     private Rest: RestService,
-    private http: HttpClient) { }
+    private http: HttpClient,) { }
+
 
   ngOnInit(): void {
     this.initMap(); 
@@ -57,9 +69,49 @@ export class MainComponent implements OnInit {
       {
         zoom: 15,
         center: {lat: -38.737621, lng: -72.588965}, //Ruta base 
+        mapTypeControl: false,
       }
     );
 
+    //--------------- Geocode por medio de direcciones ------------------
+    geocoder = new google.maps.Geocoder();
+    const inputText = document.createElement("input")
+
+    inputText.type = "text";
+    inputText.placeholder = "Prueba de locación";
+
+    const submitButton = document.createElement("input");
+    submitButton.type = "button";
+    submitButton.value = "Geocode";
+    submitButton.classList.add("button", "button_primary");
+
+    const clearButton = document.createElement("input");
+    clearButton.type = "button";
+    clearButton.value = "Limpiar";
+    clearButton.classList.add("button", "button-secondary");
+
+    response = document.createElement("pre");
+    response.id = "response";
+    response.innerText = "";
+
+    responseDiv = document.createElement("div");
+    responseDiv.id = "response-container";
+    responseDiv.appendChild(response);
+
+    const instructionsElement = document.createElement("p");
+
+    instructionsElement.id = "instructions";
+
+    instructionsElement.innerHTML =
+    "<strong>Instrucciones</strong>: Ingresa una direccion en la caja de texto de geocode.";
+
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputText);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(submitButton);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(clearButton);
+    map.controls[google.maps.ControlPosition.LEFT_TOP].push(instructionsElement);
+    map.controls[google.maps.ControlPosition.LEFT_TOP].push(responseDiv);
+
+    //-------------------------------
     const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
     const bandera = new google.maps.Marker({
