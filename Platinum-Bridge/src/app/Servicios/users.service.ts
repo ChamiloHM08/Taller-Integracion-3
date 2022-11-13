@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, User, user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { getDatabase, Database, set, ref, onValue, get, child, update } from '@angular/fire/database';
-import { RestService } from 'src/app/Servicios/rest.service';
+import { RestService } from './rest.service';
 
 @Injectable({
   providedIn: 'root'

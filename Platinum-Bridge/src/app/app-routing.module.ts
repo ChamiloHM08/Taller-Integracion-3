@@ -9,6 +9,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { NumberValueAccessor } from '@angular/forms';
 import { PrincipalComponent } from './principal/principal.component';
 import { ActualizadatosComponent } from './actualizadatos/actualizadatos.component';
+import { GenerarOfertaComponent } from './generar-oferta/generar-oferta.component';
 
 const routes: Routes = [
   { path: 'main', component: MainComponent, ...canActivate(()=> redirectUnauthorizedTo(['/principal'])) },
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'contacto', component: ContactoComponent}, 
   { path: 'principal', component: PrincipalComponent}, 
-  
+  { path: 'generarof', component: GenerarOfertaComponent},
   /* DEJAR SIEMPRE ESTAS DOS RUTAS ALFINAL EN CASO DE CREAR NUEVAS, GENERA ERROR SINO */
   { path: '', pathMatch: 'full', redirectTo: '/principal'}, 
   { path: '**', pathMatch: 'full', redirectTo: '/principal'},

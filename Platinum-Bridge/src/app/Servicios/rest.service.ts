@@ -36,7 +36,9 @@ export class RestService {
   UpdateProfile(Uid: any, Value: any){
     try{
     
-      const data = {Nombre: Value.nombres,
+      const data = {Usuario: Value.usuario,
+        Nombre: Value.nombres,
+        Apellidos: Value.apellidos,
         Descripcion: Value.descripcion,
         Nacionalidad: Value.nacionalidad,
         Direccion: Value.direccion,

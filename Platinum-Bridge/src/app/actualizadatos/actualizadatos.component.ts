@@ -13,6 +13,7 @@ export class ActualizadatosComponent implements OnInit {
 
   UserData: UserData = {
     Nombre: '',
+    Usuario: '',
     Apellidos: '',
     Descripcion: '',
     Nacionalidad: '',

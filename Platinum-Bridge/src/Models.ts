@@ -1,6 +1,7 @@
 export interface UserData {
 
     Nombre: String | null;
+    Usuario: String | null;
     Apellidos: String | null;
     Descripcion: String | null;
     Nacionalidad: String | null;

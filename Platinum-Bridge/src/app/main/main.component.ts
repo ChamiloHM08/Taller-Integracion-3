@@ -12,6 +12,8 @@ let marker: google.maps.Marker;
 let geocoder: google.maps.Geocoder;
 let responseDiv: HTMLDivElement;
 let response: HTMLElement;
+const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let labelIndex = 0;
 
 //Geolocalización por consola
 if ( navigator.geolocation ) {
@@ -115,6 +117,16 @@ export class MainComponent implements OnInit {
     //-------------------------------
     const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
+    //----------- Prueba marker labels ------
+    
+    //google.maps.event.addListener(map, "click", (event) => {
+    //  addMarker(event.latLng, map);
+    //});
+     
+    //addMarker(map);
+
+    //----------------------------------------
+  
     const bandera = new google.maps.Marker({
       position: miLatLng_2,
       map,
@@ -175,9 +187,19 @@ export class MainComponent implements OnInit {
       title: "Prueba marcador",
     });
   }
-
-  
-  
 }
 
+function addMarker(location:google.maps.LatLngLiteral, map: google.maps.Map) {
+  new google.maps.Marker({
+    position: location,
+    label: labels[labelIndex++ % labels.length],
+    map: map,
+  });
+}
+
+declare global {
+  interface Window {
+    initMap: () => void;
+  }
+}
 

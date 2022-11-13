@@ -3,8 +3,10 @@
 </head>
  
 <body>  
+  
   <div class="ventana" id="vent">
-    <h1  class="formulario__titulo">Generar una Oferta de Trabajo</h1>
+    <h1  class="formulario__titulo"> ">Generar una Oferta de Trabajo</h1>
+    
     <section>
     <form #Public_Form = "ngForm" (ngSubmit)="SendPubl(Public_Form.value)" class="formulario">
 
@@ -16,14 +18,26 @@
       
       <input ngModel name="monto" id="monto" type="number" class="formulario__input"> 
       <label class="formulario__label fijar">Monto CLP</label>
+
+      <label class="">Tipo de trabajo </label>
+      <br>
+      <input ngModel name="work-type" id="full-time" type="radio" value="Tiempo completo">
+      <label for="full-time">Tiempo completo</label>
+      <input ngModel name="work-type" id="Part-time" type="radio" value="Medio tiempo">
+      <label for="Part-time">Medio tiempo</label>
+      
+
       
       <input type="submit" value="Generar" class="formulario__submit"> 
 
       <input type="reset" value="Limpiar" class="formulario__submit">  
 
     </form>
+    
+    <div class="ventana2" id="vent">Mapa </div>
     <div class="cerrar"><a (click)="onClick2()"><img src="https://cdn-icons-png.flaticon.com/512/753/753345.png"></a></div>
     </section>
+    
   </div>
   
   <div class="ventana">
@@ -36,7 +50,7 @@
         <h2>Opciones<img src="https://cdn-icons-png.flaticon.com/512/423/423038.png" style="width: 30%"></h2>        
         <ul>
             <li><a>Solicitar trabajo</a></li>
-            <li><a (click)="onClick1()">Generar Oferta de Trabajo</a></li>
+            <li><a href="/generarof">Generar Ofertas de Trabajo</a></li>
             <li><a>Verificar cuenta</a></li>
         </ul>
       

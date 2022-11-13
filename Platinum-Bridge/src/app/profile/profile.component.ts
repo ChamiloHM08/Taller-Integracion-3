@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   
   UserData: UserData = {
     Nombre: '',
+    Usuario: '',
     Apellidos: '',
     Descripcion: '',
     Nacionalidad: '',
