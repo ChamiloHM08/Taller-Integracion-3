@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from '../rest.service';
-import { MaterialModule } from '../material.module';
-import { Router } from '@angular/router';
+import { RestService } from 'src/app/Servicios/rest.service';
 import { Auth } from '@angular/fire/auth';
 import { UserData } from 'src/Models';
-import { UsersService } from 'src/users.service';
+import { UsersService } from 'src/app/Servicios/users.service';
 
 @Component({
   selector: 'app-actualizadatos',
@@ -27,12 +25,12 @@ export class ActualizadatosComponent implements OnInit {
     Cargo: ''
   }
 
-  constructor(private Auth: Auth, private Api: RestService, private Hola: UsersService) {
+  constructor(private Auth: Auth, private Api: RestService, private UsersService: UsersService) {
 
   }
 
   ngAfterViewInit() {
-  
+    console.log(this.Auth.currentUser?.uid);
     this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
       try {
         this.UserData = res;
@@ -52,6 +50,18 @@ export class ActualizadatosComponent implements OnInit {
   actualizar(datos: any){
     this.Api.UpdateProfile(this.Auth.currentUser?.uid, datos);
 
+  }
+
+  foto(){
+    var foto = this.UsersService.UrlFoto()
+    if(foto == null){
+      return "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+
+    }else{
+      return foto
+
+    }
+    
   }
 
 }

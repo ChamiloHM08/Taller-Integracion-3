@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserData } from 'src/Models';
-import { UsersService } from 'src/users.service';
-import { RestService } from '../rest.service';
+import { UsersService } from 'src/app/Servicios/users.service';
+import { RestService } from 'src/app/Servicios/rest.service';
 import { Auth } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
 
@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   constructor(private UsersService: UsersService, private Api: RestService, private Auth: Auth) { }
 
   ngOnInit(): void {
-
+    console.log(this.Auth.currentUser?.uid);
     this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
       try {
         this.UserData = res;
@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
   }
 
   foto(){
-    var foto = this.UsersService.pruebas()
+    var foto = this.UsersService.UrlFoto()
     if(foto == null){
       return "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
 

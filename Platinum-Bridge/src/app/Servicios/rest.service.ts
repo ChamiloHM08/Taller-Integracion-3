@@ -62,14 +62,14 @@ export class RestService {
     })
   }
 
-  SendPublic(Datos: any){
+  SendPublic(Uid: any, Datos: any){
     const data = {NickName: "", 
-      UidUser: this.Auth.currentUser?.uid,
+      UidUser: Uid,
       Titulo: Datos.titulo,
       Detalles: Datos.detalles,
       Fecha: "",
       Monto: Datos.monto,
-      Ubicacion: Datos.Ubicacion}
+      Ubicacion: ""}
 
     this.http.post(this.baseUrl+"/Send_Public", data).subscribe((res: any)=>{
       console.log(res);

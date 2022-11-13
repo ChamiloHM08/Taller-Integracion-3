@@ -1,10 +1,11 @@
 import { Component, OnInit, ɵɵpureFunction1 } from '@angular/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AppComponent } from '../app.component';
-import { RestService } from '../rest.service';
+import { RestService } from 'src/app/Servicios/rest.service';
 import { Database, get, ref, getDatabase, child} from '@angular/fire/database';
 import { HttpClient } from '@angular/common/http';
 import { MatPseudoCheckbox } from '@angular/material/core';
+import { Auth } from '@angular/fire/auth';
 
 let map: google.maps.Map;
 let marker: google.maps.Marker;
@@ -48,7 +49,7 @@ export class MainComponent implements OnInit {
   
   constructor( 
     private Rest: RestService,
-    private http: HttpClient,) { }
+    private http: HttpClient, private Auth: Auth) { }
 
 
   ngOnInit(): void {
@@ -57,7 +58,7 @@ export class MainComponent implements OnInit {
   }
 
   SendPubl(value: any){
-    this.Rest.SendPublic(value);
+    this.Rest.SendPublic(this.Auth.currentUser?.uid, value);
   }
 
   public initMap(): void {
