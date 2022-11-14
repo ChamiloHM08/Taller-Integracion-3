@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { GenerarOfertaComponent } from './generar-oferta/generar-oferta.component';
 
 // ---- Servivicios ---- //
 import { RestService } from './Servicios/rest.service';
@@ -37,9 +38,9 @@ import { UsersService } from './Servicios/users.service';
     RegisterComponent,
     ContactoComponent,
     PrincipalComponent,
+    GenerarOfertaComponent,
     NavbarComponent, 
     ActualizadatosComponent
-    
   ],
   imports: [
     GoogleMapsModule,

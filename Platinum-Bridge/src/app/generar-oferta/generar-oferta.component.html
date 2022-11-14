@@ -1,10 +1,7 @@
 
-<div class="ventana2">
-    <h1>mapa culiao</h1>
-    
-    <div class="Mapa1" id="map"> </div>  
+<div class="ventana2" id="map">
+    <google-map width="570" height="550"></google-map>
 </div>
-
 
 <div class="ventana"> 
 
@@ -24,21 +21,45 @@
 <br>
 <select name="TipoTrabajo" id="TipoTrabajo">
 
-<option value="Full-Time"></option>
-<option value="Part-Time"></option>
-<option value="Practica"></option>
-<option value="Temporal"></option>
-<option value="Fines de semana"></option>
-<option value="Por horas"></option>
+<option value="Seleccione un tipo" disabled selected="">Seleccione un tipo</option>
+<option value="Full-Time">Full-time</option>
+<option value="Part-Time">Part-time</option>
+<option value="Temporal">Temporal</option>
+<option value="Fines de semana">Fines de semana</option>
+<option value="Por horas">Por horas</option>
+<option value="Practica">Practica</option>
 
 </select>
-<label></label>
 
+<label>Modalidad del trabajo</label>
 
+<br>
+<input type="radio" name="presencial" id="presencial">
+<label for="presencial">Presencial</label>
+<br>
+<input type="radio" name="remoto" id="remoto">
+<label for="remoto">Remoto</label>
+<br>
+<input type="radio" name="hibrido" id="hibrido">
+<label for="hibrido">Hibridol</label>
+<br>
 
+<label>Vacantes disponibles</label>
+
+<br>
+<label for="vacantes">Restantes: </label>
+<input type="number" name="vacantes" id="vacantes">
+
+<label>Monto CLP</label>
+<br>
+<label for="monto">$</label>
+<input type="number" name="monto" id="monto">
+<br>
+<input type="submit" value="GENERAR OFERTA" class="btn-enviar">
 </form>
-
 </section>
 
 
+
 </div>
+
