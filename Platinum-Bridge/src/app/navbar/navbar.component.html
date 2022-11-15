@@ -5,13 +5,12 @@
     <div class="menu">
       <nav>
           <ul>
-            <li><a href="profile">Perfil</a></li>
+            <li><a  href="profile">Perfil</a></li>
             <li><a href="main">Buscar Ofertas</a></li>
             <li><a href="contacto">Contacto</a></li>
 
-            <li *ngIf="User" ><button (click)="onClick()" class="btn btn-outline-danger mt-5">Logout</button></li>
+            <li *ngIf="User" ><button (click)="onClick()" class="boton btn btn-outline-danger mt-5">Logout</button></li>
             
-            <li><button (click)="onClick2()" class="btn btn-outline-danger mt-5">Pruebas</button></li>
           </ul>
       </nav>
     </div>

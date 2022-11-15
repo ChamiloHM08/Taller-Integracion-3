@@ -50,6 +50,10 @@ export class ActualizadatosComponent implements OnInit {
 
   actualizar(datos: any){
     this.Api.UpdateProfile(this.Auth.currentUser?.uid, datos);
+    this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
+      localStorage.setItem('user', JSON.stringify(res));
+
+    });
 
   }
 

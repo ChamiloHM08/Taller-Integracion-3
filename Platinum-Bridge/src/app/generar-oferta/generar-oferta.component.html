@@ -6,58 +6,51 @@
 <div class="ventana"> 
 
 <h1 class="form_titulo">Generar oferta de trabajo</h1> 
-<section>
 
 
-<form action="">
+<div class="formu">
+<form #SendPublic = "ngForm" (ngSubmit)="SendP(SendPublic.value)">
 
-<label for="TituloTrabajo">Titulo del Trabajo</label>
-<input type="text" name="TituloTrabajo" id="TituloTrabajo"> 
+    <label for="TituloTrabajo">Titulo del Trabajo</label>
+    <input ngModel type="text" name="titulotrabajo" id="titulotrabajo"> 
 
-<label for="DetailTrabajo">Detalles del trabajo</label>
-<input type="text" name="DetailTrabajo" id="DetailTrabajo">
+    <label for="DetailTrabajo">Detalles del trabajo</label>
+    <input ngModel type="text" name="detallesTrabajo" id="detallesTrabajo">
 
-<label>Tipo de trabajo</label>
-<br>
-<select name="TipoTrabajo" id="TipoTrabajo">
+    <label>Tipo de trabajo</label>
 
-<option value="Seleccione un tipo" disabled selected="">Seleccione un tipo</option>
-<option value="Full-Time">Full-time</option>
-<option value="Part-Time">Part-time</option>
-<option value="Temporal">Temporal</option>
-<option value="Fines de semana">Fines de semana</option>
-<option value="Por horas">Por horas</option>
-<option value="Practica">Practica</option>
+    <select ngModel name="tipoTrabajo" id="tipoTrabajo">
+        <option value="Seleccione un tipo" disabled selected="">Seleccione un tipo</option>
+        <option value="Full-Time">Full-time</option>
+        <option value="Part-Time">Part-time</option>
+        <option value="Temporal">Temporal</option>
+        <option value="Fines de semana">Fines de semana</option>
+        <option value="Por horas">Por horas</option>
+        <option value="Practica">Practica</option>
+    </select>
 
-</select>
+    <label>Modalidad del trabajo</label>
 
-<label>Modalidad del trabajo</label>
+    <select ngModel name="modalidadtrabajo" id="modalidadtrabajo">
+        <option value="Seleccione Modalidad de trabajo" disabled selected="">Seleccione un tipo</option>
+        <option value="presencial">Presencial</option>
+        <option value="remoto">Remoto</option>
+        <option value="hibrido">hibrido</option>
 
-<br>
-<input type="radio" name="presencial" id="presencial">
-<label for="presencial">Presencial</label>
-<br>
-<input type="radio" name="remoto" id="remoto">
-<label for="remoto">Remoto</label>
-<br>
-<input type="radio" name="hibrido" id="hibrido">
-<label for="hibrido">Hibridol</label>
-<br>
+    </select>
 
-<label>Vacantes disponibles</label>
+    <label for="vacantes">Vacantes disponibles</label>
+    <input ngModel type="number" name="vacantes" id="vacantes" min="0">
 
-<br>
-<label for="vacantes">Restantes: </label>
-<input type="number" name="vacantes" id="vacantes">
+    <label>Monto CLP</label>
 
-<label>Monto CLP</label>
-<br>
-<label for="monto">$</label>
-<input type="number" name="monto" id="monto">
-<br>
-<input type="submit" value="GENERAR OFERTA" class="btn-enviar">
+    <label for="monto">$</label>
+    <input ngModel type="number" name="monto" id="monto" min="0" value="5000">
+
+    <input type="submit" value="GENERAR OFERTA" class="btn-enviar" onclick="alert('Oferta generada')">
 </form>
-</section>
+</div>
+
 
 
 

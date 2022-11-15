@@ -91,3 +91,21 @@
   nav ul li a:hover::before {
     width: 50%;
   }
+
+  .boton{
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    padding: 3px 18px;
+    display: inline-block;
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+    cursor:pointer; cursor: hand
+  }
+  .boton:hover{
+    transform: translate(6px,6px);
+    
+  }
+  .boton:hover::after{
+    transform: translate(6px,6px);
+  }

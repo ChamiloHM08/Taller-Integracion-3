@@ -26,29 +26,11 @@ top: 50%;
 
 }
  */
-.Mapa{
-  position: relative;
-  margin-top: 3px;
-  margin-left: 300px;
- }
-
-.Mapa1{
-position: relative;
-margin-top: 3px;
-margin-left: 300px;
-height: 80%;
-width: 70%;
-}
 
  body{
   background: linear-gradient(#404040, #191919);
 
-
  }
-
-
-
-
 
  .barra {
    
@@ -191,54 +173,6 @@ width: 70%;
     
 }
 
-.formulario{
-    width: 500px;
-    max-width: 100%;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 0 0 20px 1 rgba(0, 0, 0, 0.3); 
-    position: relative;
-}
-
-.formulario__titulo{
-    text-decoration: underline;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    margin-top: 15px;
-    font-weight: 700;
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-.formulario__input, .formulario__label, .formulario__submit{
-    display:block;
-    width: 100%;
-    font-size: 1.2em;
-}
-
-.formulario__input{
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-    background:rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    margin-bottom: 40px;
-}
-
-
-.formulario__input:focus + .formulario__label {
-    margin-top: -127px;
-}
-
-.formulario__label{
-    padding: 10px;
-    padding-left: 15px;
-    position: absolute;
-    margin-top: -85px;
-    z-index: -20;
-    color: rgba(207, 177, 7, 0.5);
-    transition: all 0.3s ease;
-}
 .fijar{
     margin-top: -120px;
 
@@ -260,7 +194,7 @@ width: 70%;
 
 .ventana2{
 background-color:rgba(150, 32, 38,0.98);
-width: 70%;
+width: 50%;
 height: 70%;
 color: rgb(255, 255, 255,1);
 font-family: Arial, Helvetica, sans-serif;
@@ -272,8 +206,5 @@ border-radius: 22px;
 position: absolute;
 left: 650px;
 top: 10%;
-
-
-
 
 }

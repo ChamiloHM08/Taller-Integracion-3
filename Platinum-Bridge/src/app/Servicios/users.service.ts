@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, User, user } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, User, user, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { getDatabase, Database, set, ref, onValue, get, child, update } from '@angular/fire/database';
 import { RestService } from './rest.service';
+import { UserData } from 'src/Models';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,10 @@ export class UsersService {
   login({email, password}: any){
     return signInWithEmailAndPassword(this.Auth, email, password)
     .then(response => {
+      this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
+        localStorage.setItem('user', JSON.stringify(res));
+        console.log(localStorage.getItem("user"))
+      });
       //console.log(response);
       this.Router.navigate(['/main']);
 
@@ -46,6 +51,10 @@ export class UsersService {
           this.Api.CreateDatabase(this.Auth.currentUser?.uid, this.Auth.currentUser?.displayName, "", this.Auth.currentUser?.email);
         }
       })    
+      this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
+        localStorage.setItem('user', JSON.stringify(res));
+        console.log(localStorage.getItem("user"))
+      });
       this.Router.navigate(['/main']);
     })
     .catch(error => {
@@ -74,6 +83,7 @@ export class UsersService {
 
   logout(){
     //console.log(this.Auth);
+    localStorage.removeItem("user");
     return signOut(this.Auth);
   }
 

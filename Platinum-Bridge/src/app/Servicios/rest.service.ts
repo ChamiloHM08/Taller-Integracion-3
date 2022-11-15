@@ -64,16 +64,22 @@ export class RestService {
     })
   }
 
-  SendPublic(Uid: any, Datos: any){
-    const data = {NickName: "", 
-      UidUser: Uid,
-      Titulo: Datos.titulo,
-      Detalles: Datos.detalles,
+  SendPublic(DataUser: any, Datos: any, Ubicacion: any){
+    
+    const data = {NickName: DataUser.Usuario, 
+      UidUser: this.Auth.currentUser?.uid,
+      Titulo: Datos.titulotrabajo,
+      Detalles: Datos.detallesTrabajo,
       Fecha: "",
+      TipoTrabajo: Datos.tipoTrabajo,
+      ModalidadTrabajo: Datos.modalidadtrabajo,
+      Vacantes: Datos.vacantes,
       Monto: Datos.monto,
-      Ubicacion: ""}
+      Ubicacion: Ubicacion}
 
-    this.http.post(this.baseUrl+"/Send_Public", data).subscribe((res: any)=>{
+    console.log(data);
+
+    this.http.post(this.baseUrl+"/Send_Publ", data).subscribe((res: any)=>{
       console.log(res);
     })
   }

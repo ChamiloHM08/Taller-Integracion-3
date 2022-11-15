@@ -1,29 +1,26 @@
-<body>
-  <div class="team">
-      <div class="team_member">
-        <div class="team_img">
-          <img class="perfil" src="" alt="img-avatar">
-        </div>
-        <h3>Nombre de usuario</h3>
-        <form #Update = "ngForm" (ngSubmit)="actualizar(Update.value)">      
-          <h2 class="form__titulo">Formulario de actualizaciones</h2>
-          <div class="contenedor-inputs">
-            <input [(ngModel)]="UserData.Usuario" class="input-48" type="text" name="usuario" id="usuario" placeholder="Usuario">
-            <input [(ngModel)]="UserData.Nombre" class="input-48" type="text" name="nombres" id="nombres" placeholder="Nombre">
-            <input [(ngModel)]="UserData.Apellidos" class="input-48" type="text" name="apellidos" id="apellidos" placeholder="Apellido"> 
-            <input [(ngModel)]="UserData.Descripcion" class="input-48" type="text" name="descripcion" id="descripcion" placeholder="Descripcion">   
-            <input [(ngModel)]="UserData.Nacionalidad" class="input-48" type="text" name="nacionalidad" id="nacionalidad" placeholder="Nacionalidad">   
-            <input [(ngModel)]="UserData.Direccion" class="input-100" type="text" name="direccion" id="direccion" placeholder="Direccion">
-            <input [(ngModel)]="UserData.Trabaja" class="input-48" type="text" name="trabajo" id="trabajo" placeholder="Trabajo">  
-            <input [(ngModel)]="UserData.Telefono" class="input-100" type="number" name="telefono" id="telefono" placeholder="Telefono">
-          <br>
-          <input type="submit" value="Actualizar" class="btn-enviar">
-        
+
+<div class="team">
+    <div class="team_member">
+      <div class="team_img">
+        <img class="perfil" src="{{foto()}}" alt="img-avatar">
       </div>
-    </form> 
-
-  </div>
-
+      <h3>Nombre de usuario</h3>
+      <form #Update = "ngForm" (ngSubmit)="actualizar(Update.value)">      
+        <h2 class="form__titulo">Formulario de actualizaciones</h2>
+        <div class="contenedor-inputs">
+          <input [(ngModel)]="UserData.Usuario" class="input-48" type="text" name="usuario" id="usuario" placeholder="Usuario">
+          <input [(ngModel)]="UserData.Nombre" class="input-48" type="text" name="nombres" id="nombres" placeholder="Nombre">
+          <input [(ngModel)]="UserData.Apellidos" class="input-48" type="text" name="apellidos" id="apellidos" placeholder="Apellido"> 
+          <input [(ngModel)]="UserData.Descripcion" class="input-48" type="text" name="descripcion" id="descripcion" placeholder="Descripcion">   
+          <input [(ngModel)]="UserData.Nacionalidad" class="input-48" type="text" name="nacionalidad" id="nacionalidad" placeholder="Nacionalidad">   
+          <input [(ngModel)]="UserData.Direccion" class="input-100" type="text" name="direccion" id="direccion" placeholder="Direccion">
+          <input [(ngModel)]="UserData.Trabaja" class="input-48" type="text" name="trabajo" id="trabajo" placeholder="Trabajo">  
+          <input [(ngModel)]="UserData.Telefono" class="input-100" type="number" name="telefono" id="telefono" placeholder="Telefono">
+          <br>
+          <input type="submit" value="Actualizar" class="btn-enviar" onclick="alert('Datos actualizados.')" >
+          <input type="button" value="Volver" onclick="location.href='profile';">
+      
+        </div>
+      </form> 
+    </div>
 </div>
-
-</body>

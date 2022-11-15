@@ -27,6 +27,7 @@ import { GenerarOfertaComponent } from './generar-oferta/generar-oferta.componen
 // ---- Servivicios ---- //
 import { RestService } from './Servicios/rest.service';
 import { UsersService } from './Servicios/users.service';
+import { Auth } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -56,6 +57,6 @@ import { UsersService } from './Servicios/users.service';
     provideDatabase(() => getDatabase())
   ],
   providers: [UsersService, RestService],
-  bootstrap: [AppComponent, NavbarComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

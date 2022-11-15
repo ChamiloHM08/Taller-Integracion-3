@@ -1,15 +1,6 @@
 import { Component, OnInit, ɵɵpureFunction1 } from '@angular/core';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { AppComponent } from '../app.component';
-import { RestService } from 'src/app/Servicios/rest.service';
-import { Database, get, ref, getDatabase, child} from '@angular/fire/database';
-import { HttpClient } from '@angular/common/http';
-import { MatPseudoCheckbox } from '@angular/material/core';
-import { Auth } from '@angular/fire/auth';
-
-let map: google.maps.Map;
-let responseDiv: HTMLDivElement;
-let response: HTMLElement;
+import { RestService } from '../Servicios/rest.service';
+import { UsersService } from '../Servicios/users.service';
 
 
 //Geolocalización por consola
@@ -24,25 +15,46 @@ if ( navigator.geolocation ) {
 })
 
 export class MainComponent implements OnInit {
-  dbRef = ref(getDatabase());
-
-  options: google.maps.MapOptions = {
-    center: {lat: -38.737621, lng: -72.588965},
-    zoom: 15,
-  };
-
-  constructor( 
-    private Rest: RestService,
-    private http: HttpClient, private Auth: Auth) { }
-
-
-  ngOnInit(): void {
   
+  Publ: any;
+
+  constructor(private Api: RestService) { 
     
   }
 
-  SendPubl(value: any){
-    this.Rest.SendPublic(this.Auth.currentUser?.uid, value);
+  ngOnInit() {
+    this.initMap();
+  
+
   }
 
+  initMap() {
+    const map = new google.maps.Map(
+      document.getElementById("map") as HTMLElement,
+      {
+        zoom: 15,
+        center: { lat: -38.737621, lng: -72.588965 },
+      }
+    );
+
+    this.Api.GetPublActivas().subscribe((res: any)=>{
+      this.Publ = res;
+      for (var clave in this.Publ){
+        if (this.Publ.hasOwnProperty(clave)) {
+         
+          console.log("La clave es " + clave+ " y el valor es " + this.Publ[clave].Detalles);
+
+          new google.maps.Marker({
+            position: { lat: this.Publ[clave].Ubicacion.Coord.x, lng: this.Publ[clave].Ubicacion.Coord.y },
+            map:map,
+          });
+
+        }
+      }
+  
+    });
+
+  }
+
+ 
 }
