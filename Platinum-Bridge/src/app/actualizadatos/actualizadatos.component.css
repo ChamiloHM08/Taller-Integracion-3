@@ -2,6 +2,7 @@
     box-sizing: border-box;
   }
   body{
+    padding-top: 2cm;
     margin:0;
     font-family: sans-serif;
     background: linear-gradient(#404040, #191919);

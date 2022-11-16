@@ -41,14 +41,38 @@ export class MainComponent implements OnInit {
       this.Publ = res;
       for (var clave in this.Publ){
         if (this.Publ.hasOwnProperty(clave)) {
-         
-          console.log("La clave es " + clave+ " y el valor es " + this.Publ[clave].Detalles);
+          
+          var content1 = '<div id="contentMap" ><FONT COLOR="black">' +
+          //"<img src='https://cdn-icons-png.flaticon.com/512/616/616408.png' width='80' height='80'>" +
+          '<h1 id="firstHeading" class="firstHeading"><FONT COLOR="red"> Solicitud de Trabajo: '+ this.Publ[clave].Titulo +'</FONT></h1>' +
+          '<div id="bodyContent">' +
+          "<p><b>Nombre: </b> "+this.Publ[clave].NickName +" <br/>" +
+          "<b>Descripción: </b>"+ this.Publ[clave].Detalles +"<br/>" +
+          "<p><b>Vacantes: </b>"+ this.Publ[clave].Vacantes+"<br/>" +
+          "<b>Fecha de publicación: </b>   <br/>" +
+          "<b>Lugar: </b> "+ this.Publ[clave].Ubicacion.Ciudad + "<br/>" +
+          "<b>Monto: </b>$"+this.Publ[clave].Monto+"</p>" +
+          "<p><a href='javascript:location.reload()'>Ver más datos aquí</a></p>" +
+          "</div>" +
+          "</FONT></div>";
+      
+          //console.log("La clave es " + clave+ " y el valor es " + this.Publ[clave].Detalles);
 
-          new google.maps.Marker({
-            position: { lat: this.Publ[clave].Ubicacion.Coord.x, lng: this.Publ[clave].Ubicacion.Coord.y },
-            map:map,
+          const infoWindow = new google.maps.InfoWindow({
+            content: content1
           });
 
+          const marker = new google.maps.Marker({
+            position: { lat: this.Publ[clave].Ubicacion.Coord.x, lng: this.Publ[clave].Ubicacion.Coord.y },
+            map: map,
+          });
+
+          marker.addListener("click", () => {
+            infoWindow.open(marker.getMap(), marker);
+
+          });
+
+          
         }
       }
   

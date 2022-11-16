@@ -52,10 +52,20 @@ export class GenerarOfertaComponent implements OnInit {
   SendP(value: any){
     const user = JSON.parse(localStorage.getItem("user")!);
     const Ubicacion = {Ciudad: "Temuco", Comuna: "Temuco", Coord:{x: this.marker.getPosition()?.lat(), y:this.marker.getPosition()?.lng()}}
-    console.log(value)
-    console.log(Ubicacion)
-    this.Api.SendPublic(user, value, Ubicacion);
-    this.Router.navigate(['/main']);
+
+    if(this.marker.getPosition()?.lat == null){
+      return alert("Debes colocar una ubicacion en el mapa")
+
+    }else if(user.Usuario == ''){
+      return alert("Antes de hacer una publicacion debes completar tu informacion de usuario")
+
+    }else{
+      this.Api.SendPublic(user, value, Ubicacion);
+      alert("Oferta Generada")
+      this.Router.navigate(['/main']).then(() => {
+        window.location.reload();
+      });;
+    }
 
   }
  
