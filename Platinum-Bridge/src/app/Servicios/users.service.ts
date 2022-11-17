@@ -1,35 +1,44 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, User, user, onAuthStateChanged } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { getDatabase, Database, set, ref, onValue, get, child, update } from '@angular/fire/database';
 import { RestService } from './rest.service';
-import { UserData } from 'src/Models';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class UsersService {
-  dbRef = ref(getDatabase());
 
-  constructor(private Auth: Auth, private Database: Database, private Router: Router, private Api: RestService){}
+  // Este archivo se encarga de todas las funcionalidades de logeo y acceso de los usuarios
 
-  ObtenerDatos(){
-    return get(child(this.dbRef, `users/${this.Auth.currentUser?.uid}`))
-  }
+  constructor(private Auth: Auth, private Router: Router, private Api: RestService){}
 
+  // Funcion para registrar y autenticar a un nuevo usuario, Ademas de generar una base de datos para su informacion 
   register(value: any){
-    return createUserWithEmailAndPassword(this.Auth, value.email, value.password).then(response => {
-     
+    return createUserWithEmailAndPassword(this.Auth, value.email, value.password).then(response => {   
       this.Api.CreateDatabase(this.Auth.currentUser?.uid, value.nombres, value.apellidos, this.Auth.currentUser?.email);
-
       this.logout();
-      //console.log(response);
       this.Router.navigate(['/login']);
+
     })
-    .catch(error => console.log(error));
+    .catch(error => { // Errores tras cualquier error de registro
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode == 'auth/weak-password') {
+        alert('La contraseña es demasiado debil.');
+      
+      }else if(errorCode == 'auth/email-already-in-use'){
+        alert('El correo ingresado ya esta en uso.')
+
+      }else if(errorCode == 'auth/invalid-email'){
+        alert('El correo ingresado no es valido.')
+      }else{
+        alert(errorMessage);
+      }
+    });
   }
 
+  // 
   login({email, password}: any){
     return signInWithEmailAndPassword(this.Auth, email, password)
     .then(response => {
@@ -41,7 +50,21 @@ export class UsersService {
       this.Router.navigate(['/main']);
 
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode == 'auth/wrong-password') {
+        alert('La contraseña es incorrecta.');
+      
+      }else if(errorCode == 'auth/user-not-found'){
+        alert('El usuario ingresado no existe.')
+
+      }else if(errorCode == 'auth/invalid-email'){
+        alert('El correo ingresado no es valido.')
+      }else{
+        alert(errorMessage);
+      }
+    });
   }
 
   loginGoogle(){
@@ -64,25 +87,7 @@ export class UsersService {
     });
   }
 
-  UpdateProfile(value: any){
-
-    return update(ref(this.Database, 'users/' + this.Auth.currentUser?.uid),{
-      //Nombre: value.Nombre,
-      //Descripcion: value.Descripcion,
-      Nacionalidad: value.Nacionalidad,
-      Direccion: value.Direccion,
-      F_Nacimiento: value.F_Nacimiento,
-      Correo: value.Correo,
-      Telefono: value.Telefono,
-      Preferencia_Empleo: value.Preferencia_Empleo,
-      Trabaja: value.Trabaja,
-      Cargo: value.Cargo
-    }); 
-
-  }
-
   logout(){
-    //console.log(this.Auth);
     localStorage.removeItem("user");
     return signOut(this.Auth);
   }

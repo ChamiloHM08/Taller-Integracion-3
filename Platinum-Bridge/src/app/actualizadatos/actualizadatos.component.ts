@@ -3,6 +3,7 @@ import { RestService } from 'src/app/Servicios/rest.service';
 import { Auth } from '@angular/fire/auth';
 import { UserData } from 'src/Models';
 import { UsersService } from 'src/app/Servicios/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizadatos',
@@ -29,31 +30,64 @@ export class ActualizadatosComponent implements OnInit {
   constructor(private Auth: Auth, private Api: RestService, private UsersService: UsersService) {
 
   }
-
-  ngAfterViewInit() {
-    console.log(this.Auth.currentUser?.uid);
+ 
+  ngOnInit(): void {
     this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
       try {
         this.UserData = res;
-        console.log(this.UserData);
+      
       } catch (error) {
         console.log(res.message)
       }
     });
 
-  }  
-
-  ngOnInit(): void {
-
-
   }
 
   actualizar(datos: any){
-    this.Api.UpdateProfile(this.Auth.currentUser?.uid, datos);
-    this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
-      localStorage.setItem('user', JSON.stringify(res));
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger',
+      },
+      buttonsStyling: false
+    })
 
-    });
+    swalWithBootstrapButtons.fire({
+        title: 'Se guardarán los cambios',
+        text: 'Está de acuerdo en actualizar sus cambios?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Actualizar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.Api.UpdateProfile(this.Auth.currentUser?.uid, datos);
+          this.Api.GetUserID(this.Auth.currentUser?.uid).subscribe((res: any) =>{
+            localStorage.setItem('user', JSON.stringify(res));
+          });
+          swalWithBootstrapButtons.fire({
+            title: 'Guardado!',
+            text: 'Sus cambios han sido guardados, se redirigirá a su perfil',
+            icon: 'success',
+            showConfirmButton: false,
+            /* backdrop: `
+              rgba(0,0,123,0.4)
+              url("https://media.tenor.com/-AyTtMgs2mMAAAAj/nyan-cat-nyan.gif")
+              left top
+              no-repeat
+            ` */
+          })
+          setTimeout(() => location.href="/profile", 2500)
+        } else if (
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: 'Cancelado',
+            text: 'Los cambios no se han aplicado',
+            icon: 'error',
+          })
+        }
+      })
 
   }
 

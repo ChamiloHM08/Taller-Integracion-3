@@ -48,14 +48,32 @@ ul {
     text-align:center;
 }
 
-.barra {
+.barra{
  margin-top: 0.5cm;
 
 }
-.barra a{
-    padding:0px;
-    font-size:12px ;
-    color:white;
+.actualizador{
+    background: transparent;
+    border: 2px solid #0099CC;
+    border-radius: 6px;
+    border: none;
+      padding: 10px 20px;
+      text-align: center;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
 }
-
-
+.actualizadorBtn {
+    background-color: white; 
+      color: black; 
+      border: 2px solid #CC0202;
+}
+.actualizadorBtn:hover {
+    background-color: #CC0202;
+    color: white;
+}

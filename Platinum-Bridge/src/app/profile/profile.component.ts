@@ -53,12 +53,6 @@ export class ProfileComponent implements OnInit {
     
   }
 
-  EditarProfile(value: any){
-    console.log(value);
-    this.UsersService.UpdateProfile(value);
-
-  }
-
   showModal(){
     Swal.fire('Cambios exitosos','Su perfil ha sido actualizado!','success');
   }

@@ -1,0 +1,124 @@
+.Primera{
+    width: 80%;
+    height: 10%;
+    background: #612d2a;
+    position: relative;
+    left: 10%;
+    top: 2%;
+    border-radius: 5px; 
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+.Trabajo_titulo{
+    
+text-align: center;
+font-weight: bolder;
+font-size: xx-large;
+margin-top: 25px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-decoration: underline;
+
+
+}
+/*.BotonesDetalles{
+    width: 60%;
+    height: 10%;
+    background: white;
+    position: relative;
+    left: 5%;
+    top: 3%;
+    text-align: center;
+    border-radius: 5px;
+}*/
+.Detalles_Content{
+    width: 50%;
+    height: 40%;
+    background: rgb(168, 39, 34);
+    top: 5%;
+    position: relative;
+    left: 26%;
+    text-align: center;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+#Trabajo , #Perfil{
+    width: 45%;
+    height: 89%;
+    margin: 5px;
+    padding: 1em;
+    background:#612d2a;
+    text-align: left;
+    border-style: solid;
+    border-color: black;
+}
+
+#Trabajo {float: left;}
+#Perfil {float: left;}
+
+
+.Trabajo_details li{
+    list-style: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    padding: 5px;
+}
+
+.Trabajo_details img{
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-right: 15px;
+}
+
+.Perfil_details li{
+    list-style: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    padding: 5px;
+}
+
+.Perfil_details li span{
+    text-decoration: underline;
+}
+
+.Perfil_details img{
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-right: 15px;
+}
+
+
+.Descripcion{
+    width: 70%;
+    height: 30%;
+    background: #612d2ac4;
+    top: 8%;
+    position: relative;
+    left: 15%;
+    text-align: center;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    text-align: left;  
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    text-decoration: dotted;
+    text-align: center;
+    
+}
+
+.foto{
+    border-radius: 1000px;
+    width: 20%;
+    height: 50%;
+    background: white;
+    position: absolute;
+    left: 92%;
+    top: 8%;
+    border-style: solid;
+}

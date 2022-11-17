@@ -1,11 +1,13 @@
-
+<head>
+  <title>Registro - Platinum Bridge</title>
+</head>
     <section class="form-register">
-        <form #LoginForm = 'ngForm' (ngSubmit)="onSubmit(LoginForm.value)">    
+        <form ngNativeValidate #LoginForm = 'ngForm' (ngSubmit)="onSubmit(LoginForm.value)">    
             <h4>Formulario Registro</h4>
-            <input class="controls" ngModel type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-            <input class="controls" ngModel type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-            <input class="controls" ngModel type="email" name="email" id="email" placeholder="Ingrese su Correo">
-            <input class="controls" ngModel type="password" name="password" id="password" placeholder="Ingrese su Contraseña">     
+            <input class="controls" ngModel required type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+            <input class="controls" ngModel required type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+            <input class="controls" ngModel required type="email" name="email" id="email" placeholder="Ingrese su Correo">
+            <input class="controls" ngModel required type="password" name="password" id="password" placeholder="Ingrese su Contraseña">     
             <input class="botons" type="submit" value="Registrar">
         </form>
       <p><a href="/login">Ya tengo Cuenta</a></p>

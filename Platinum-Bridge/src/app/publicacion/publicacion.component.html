@@ -1,0 +1,51 @@
+<head>
+    <title>Publicaciones - Platinum Bridge</title>
+</head>
+<div class="Primera" *ngIf="DataPubl">
+    <h1 class="Trabajo_titulo">{{ DataPubl.Titulo }}</h1>
+</div>
+<div class="Detalles_Content">
+    <div id="Trabajo" *ngIf="DataPubl">
+        <ul class="Trabajo_details">
+            <img src="https://cdn-icons-png.flaticon.com/512/3171/3171065.png" alt="">
+            <li id="izq1">{{ DataPubl.NickName }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/2370/2370264.png" alt="">
+            <li id="izq2">{{ DataPubl.Fecha }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/1827/1827379.png" alt="">
+            <li id="izq3">{{ DataPubl.Hora }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/1483/1483285.png" alt="">
+            <li id="izq4">{{ DataPubl.Ubicacion.Direccion }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/22/22935.png" alt="">
+            <li id="izq5">{{ DataPubl.ModalidadTrabajo }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/786/786017.png" alt="">
+            <li id="izq6">{{ DataPubl.TipoTrabajo }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/74/74742.png" alt="">
+            <li id="izq7">{{ DataPubl.Monto }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/32/32441.png" alt="">
+            <li id="izq8">{{ DataPubl.Vacantes }}</li>
+        </ul>
+    </div> 
+    <div id="Perfil" *ngIf="DataEmpleador">
+         <ul class="Perfil_details">
+            <div class="foto">
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3171/3171065.png" alt="">
+            <li id="der1"> <span>Nombre:</span> {{ DataEmpleador.Nombre }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/4065/4065393.png" alt="">
+            <li id="der2"> <span>Apellido:</span> {{ DataEmpleador.Apellidos }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/1141/1141318.png" alt="">
+            <li id="der3"> <span>Trabaja en:</span> {{ DataEmpleador.Trabaja }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/3777/3777802.png" alt="">
+            <li id="der4"> <span>Nacionalidad:</span> {{ DataEmpleador.Nacionalidad }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/3494/3494693.png" alt="">
+            <li id="der5"> <span>Correo:</span> {{ DataEmpleador.Correo }}</li>
+            <img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" alt="">
+            <li id="der6"> <span>Celular:</span> {{ DataEmpleador.Telefono }}</li>
+         </ul>
+    </div>
+</div>
+
+<div class="Descripcion" *ngIf="DataPubl">
+    <p id="content_descripcion"> {{DataPubl.Detalles}}</p>
+
+</div>

@@ -43,11 +43,13 @@ top: 50%;
     transition: .4s all ;
     /*este arriba de todo en la pantalla*/
     z-index: 1;  
+    left: 10%;
+    top: 13%;
 }
 
 .barra ul{
     /*solucionar espacios no deseados*/
-    padding:0px;
+    padding:10px;
     text-align: center;
         
 }
@@ -70,7 +72,7 @@ top: 50%;
 .barra  h2{
     text-align: center;
     color:rgb(255, 255, 255);
-    padding:7px;
+    padding:10px;
 	margin-left: 1cm;
     padding-bottom:7px;
 
@@ -204,7 +206,7 @@ padding: 33px;
 min-height: 250px;
 border-radius: 22px;
 position: absolute;
-left: 650px;
-top: 10%;
+left: 30%;
+top: 15%;
 
 }

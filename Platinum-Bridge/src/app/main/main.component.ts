@@ -46,13 +46,15 @@ export class MainComponent implements OnInit {
           //"<img src='https://cdn-icons-png.flaticon.com/512/616/616408.png' width='80' height='80'>" +
           '<h1 id="firstHeading" class="firstHeading"><FONT COLOR="red"> Solicitud de Trabajo: '+ this.Publ[clave].Titulo +'</FONT></h1>' +
           '<div id="bodyContent">' +
-          "<p><b>Nombre: </b> "+this.Publ[clave].NickName +" <br/>" +
-          "<b>Descripción: </b>"+ this.Publ[clave].Detalles +"<br/>" +
+          "<p><b>Nombre: </b> "+ this.Publ[clave].NickName +
+          "<div id='Detalles' style='display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;'>"+
+          "<p><b>Descripción:</b>"+this.Publ[clave].Detalles +"</p><br/>" +
+          "</div>"+
           "<p><b>Vacantes: </b>"+ this.Publ[clave].Vacantes+"<br/>" +
-          "<b>Fecha de publicación: </b>   <br/>" +
-          "<b>Lugar: </b> "+ this.Publ[clave].Ubicacion.Ciudad + "<br/>" +
+          "<b>Fecha de publicación: </b> "+ this.Publ[clave].Fecha +"  <br/>" +
+          "<b>Lugar: </b> "+ this.Publ[clave].Ubicacion.Direccion+"<br/>" +
           "<b>Monto: </b>$"+this.Publ[clave].Monto+"</p>" +
-          "<p><a href='javascript:location.reload()'>Ver más datos aquí</a></p>" +
+          "<p><a href='/publicacion/"+[clave]+"'>Ver más datos aquí</a></p>" +
           "</div>" +
           "</FONT></div>";
       

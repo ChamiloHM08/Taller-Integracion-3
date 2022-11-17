@@ -1,25 +1,27 @@
-
+<head>
+    <title>Crear oferta - Platinum Bridge</title>
+</head>
 <div class="ventana2" id="map">
     <google-map width="570" height="550"></google-map>
 </div>
 
 <div class="ventana"> 
-
+<br>
 <h1 class="form_titulo">Generar oferta de trabajo</h1> 
-
 
 <div class="formu">
 <form ngNativeValidate #SendPublic = "ngForm" (ngSubmit)="SendP(SendPublic.value)">
 
-    <label for="TituloTrabajo">Titulo del Trabajo</label>
-    <input ngModel required type="text" name="titulotrabajo" id="titulotrabajo" > 
+    <label for="TituloTrabajo" class="formu_label">Titulo del Trabajo</label>
+    
+    <input ngModel required type="text" name="titulotrabajo" id="titulotrabajo" class="formu_input"> 
 
-    <label for="DetailTrabajo">Detalles del trabajo</label>
-    <input ngModel required type="text" name="detallesTrabajo" id="detallesTrabajo" >
+    <label for="DetailTrabajo" class="formu_label">Detalles del trabajo</label>
+    <textarea ngModel required name="detallesTrabajo" id="detallesTrabajo" cols="25" rows="5" maxlength="2000"></textarea>
 
-    <label>Tipo de trabajo</label>
+    <label class="formu_label">Tipo de trabajo</label>
 
-    <select ngModel required name="tipoTrabajo" id="tipoTrabajo">
+    <select ngModel required name="tipoTrabajo" id="tipoTrabajo" class="formu_select">
         <option value="Seleccione un tipo" disabled selected="">Seleccione un tipo</option>
         <option value="Full-Time">Full-time</option>
         <option value="Part-Time">Part-time</option>
@@ -28,31 +30,26 @@
         <option value="Por horas">Por horas</option>
         <option value="Practica">Practica</option>
     </select>
+    <label class="formu_label">Modalidad del trabajo</label>
 
-    <label>Modalidad del trabajo</label>
-
-    <select ngModel required name="modalidadtrabajo" id="modalidadtrabajo">
+    <select ngModel required name="modalidadtrabajo" id="modalidadtrabajo" class="formu_select">
         <option value="Seleccione Modalidad de trabajo" disabled selected="">Seleccione un tipo</option>
         <option value="presencial">Presencial</option>
         <option value="remoto">Remoto</option>
         <option value="hibrido">hibrido</option>
 
     </select>
+    <br>
+    <label for="vacantes" class="formu_label">Vacantes disponibles</label>
+    <input ngModel required type="number" name="vacantes" id="vacantes" min="1" class="formu_input">
 
-    <label for="vacantes">Vacantes disponibles</label>
-    <input ngModel required type="number" name="vacantes" id="vacantes" min="0">
-
-    <label>Monto CLP</label>
-
-    <label for="monto">$</label>
-    <input ngModel required type="number" name="monto" id="monto" min="0" value="5000">
+    <label class="formu_label">Monto CLP$</label>
+    <input ngModel required type="number" name="monto" id="monto" min="1000" class="formu_input">
 
     <input type="submit" value="GENERAR OFERTA" class="btn-enviar">
+    <br>
+    <input type="reset" value="Limpiar" class="btn-enviar" id="limpiar">
 </form>
 </div>
 
-
-
-
-</div>
 

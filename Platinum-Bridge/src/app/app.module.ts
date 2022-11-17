@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { GenerarOfertaComponent } from './generar-oferta/generar-oferta.component';
+import { PublicacionComponent } from './publicacion/publicacion.component';
 
 // ---- Servivicios ---- //
 import { RestService } from './Servicios/rest.service';
@@ -41,7 +42,8 @@ import { Auth } from '@angular/fire/auth';
     PrincipalComponent,
     GenerarOfertaComponent,
     NavbarComponent, 
-    ActualizadatosComponent
+    ActualizadatosComponent,
+    PublicacionComponent
   ],
   imports: [
     GoogleMapsModule,

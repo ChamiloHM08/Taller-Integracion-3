@@ -10,12 +10,14 @@ import { NumberValueAccessor } from '@angular/forms';
 import { PrincipalComponent } from './principal/principal.component';
 import { ActualizadatosComponent } from './actualizadatos/actualizadatos.component';
 import { GenerarOfertaComponent } from './generar-oferta/generar-oferta.component';
+import { PublicacionComponent } from './publicacion/publicacion.component';
 
 const routes: Routes = [
   { path: 'main', component: MainComponent, ...canActivate(()=> redirectUnauthorizedTo(['/principal'])) },
   { path: 'profile', component: ProfileComponent, ...canActivate(()=> redirectUnauthorizedTo(['/principal'])) },
   { path: 'update', component: ActualizadatosComponent, ...canActivate(()=> redirectUnauthorizedTo(['/principal'])) }, 
   { path: 'generarof', component: GenerarOfertaComponent, ...canActivate(()=> redirectUnauthorizedTo(['/principal']))},
+  { path: 'publicacion/:UidPubl', component: PublicacionComponent, ...canActivate(()=> redirectUnauthorizedTo(['/principal']))}, //publicaciones/:UidPubl
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'contacto', component: ContactoComponent}, 

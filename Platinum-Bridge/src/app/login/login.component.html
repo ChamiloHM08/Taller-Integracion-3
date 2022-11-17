@@ -1,15 +1,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Formulario Login</title>
+    <title>Formulario Login - Platinum Bridge</title>
     
   </head>
   <body>
     <section class="form-login">
         <form [formGroup] = "formLogin" (ngSubmit)="onSubmit()">     
             <h5>Formulario Login</h5>
-            <input class="controls" formControlName="email" type="text" name="usuario" value="" placeholder="Usuario">
-            <input class="controls" formControlName="password" type="password" name="contrasena" value="" placeholder="Contraseña">
+            <input class="controls" formControlName="email" type="text" name="usuario" value="" placeholder="👤 Usuario">
+            <input class="controls" formControlName="password" type="password" name="contrasena" value="" placeholder="🔐 Contraseña">
             <input class="buttons" type="submit" name="" value="Ingresar">
             <input class="fotito" type=image (click)="onclickGoogle()" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" width="50" height="50">
             <p><a href="#">¿Olvidaste tu Contraseña?</a></p>
